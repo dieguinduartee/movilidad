@@ -26,7 +26,7 @@
 <div class="form-group">
 <label>Rol</label>
 <select class="form-control" name="lastname" id="">
-		    <label for="user_role">Rol</label>
+		    <label for="user_role">Rol a</label>
 		   <?php
 echo "<option value='Docente'>Docente</option>";
 echo "<option value='Estudiante'>Estudiante</option>";
