@@ -23,11 +23,11 @@ $_POST = $gump->sanitize($_POST);
 
 
 $gump->validation_rules(array(
-	'firstname'   => 'required|alpha|max_len,30|min_len,2',
-	'lastname'    => 'required|alpha|max_len,30|min_len,1',
+	//'firstname'   => 'required|alpha|max_len,30|min_len,2',
+	//'lastname'    => 'required|alpha|max_len,30|min_len,1',
 	'email'       => 'required|valid_email',
-	'currentpassword' => 'required|max_len,50|min_len,6',
-	'newpassword'    => 'max_len,50|min_len,6',
+	//'currentpassword' => 'required|max_len,50|min_len,6',
+	//'newpassword'    => 'max_len,50|min_len,6',
 ));
 $gump->filter_rules(array(
 	'firstname' => 'trim|sanitize_string',
@@ -106,7 +106,7 @@ else {
 	</div>
 
 	<div class="form-group">
-		<label for="user_status">Apellido</label>
+		<label for="user_status">Docente/Estudiante</label>
 		<input type="text" name="lastname" class="form-control" value="<?php echo $userlastname; ?>" required>
 	</div>
 	<div class="form-group">

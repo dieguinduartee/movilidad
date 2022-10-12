@@ -37,7 +37,7 @@ else if ($currentrole == 'superadmin') {
             <th>Id</th>
             <th>Usuario</th>
             <th>Nombre</th>
-            <th>Apellido</th>
+            <th>Docente/Estudiante</th>
             <th>Correo</th>
             <th>Rol</th>
             <th>Cambiar Rol</th>
@@ -161,7 +161,7 @@ else {
         <tr>
             
             <th>Nombre</th>
-            <th>Apellido</th>
+            <th>Docente/Estudiante</th>
             <th>Correo</th>
             <th>Rol</th>
             

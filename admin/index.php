@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            CMS  
+                            UFPS MOVILIDAD  
                             <small><?php echo $_SESSION['firstname']; ?></small>
                         </h1>
 
@@ -36,14 +36,14 @@ $post_num = mysqli_num_rows($result);
 echo "<div class='text-right huge'>{$post_num}</div>";
 ?>
 
-                                        <div class="text-right">Post</div>
+                                        <div class="text-right">EXPERIENCIAS</div>
 
                                     </div>
                                 </div>
                             </div>
                             <a href="posts.php">
                                 <div class="panel-footer">
-                                    <span class="pull-left">Ver todos los Post</span>
+                                    <span class="pull-left">VER TODAS LAS EXPERIENCIAS</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
@@ -67,21 +67,23 @@ echo "<div class='text-right huge'>{$user_num}</div>";
 ?>
 
 
-                                        <div class="text-right">Usuarios</div>
+                                        <div class="text-right">USUARIOS</div>
 
                                     </div>
                                 </div>
                             </div>
                             <a href="users.php">
                                 <div class="panel-footer">
-                                    <span class="pull-left">Ver todos los Usuarios</span>
+                                    <span class="pull-left">VER USUARIOS</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
                             </a>
                         </div>
                     </div>
-                   
+
+
+                    <div class="text-right">MOVILIDAD</div>
             </div>
             
         </div>

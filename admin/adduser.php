@@ -15,11 +15,11 @@ $gump = new GUMP();
 $_POST = $gump->sanitize($_POST); 
 
 $gump->validation_rules(array(
-	'username'    => 'required|alpha_numeric|max_len,20|min_len,4',
-	'firstname'   => 'required|alpha|max_len,30|min_len,2',
-	'lastname'    => 'required|alpha|max_len,30|min_len,1',
+	//'username'    => 'required|alpha_numeric|max_len,20|min_len,4',
+	//'firstname'   => 'required|alpha|max_len,30|min_len,2',
+	//'lastname'    => 'required|alpha|max_len,30|min_len,1',
 	'email'       => 'required|valid_email',
-	'password'    => 'required|max_len,50|min_len,6',
+	//'password'    => 'required|max_len,50|min_len,6',
 ));
 $gump->filter_rules(array(
 	'username' => 'trim|sanitize_string',
@@ -88,17 +88,26 @@ else {
 	</div>
 
 	<div class="form-group">
-		<label for="user_status">Apellido</label>
-		<input type="text" name="lastname" class="form-control" required>
-	</div>
+<label>Rol</label>
+<select class="form-control" name="lastname" id="">
+		    <label for="user_role">Rol a</label>
+		   <?php
+echo "<option value='Docente'>Docente</option>";
+echo "<option value='Estudiante'>Estudiante</option>";
+?>
+</select>
+
+<br>
+
+<label for="user_role">Admin/Usuario</label>
 
 	<div class="input-group">
 		<select class="form-control" name="role" id="">
 		    <label for="user_role">Rol</label>
 		   <?php
+echo "<option value='user'>Usuario</option>";
+echo "<option value='admin'>Administrador</option>";
 
-echo "<option value='admin'>Admin</option>";
-echo "<option value='user'>User</option>";
 ?>
 
 	    </select>

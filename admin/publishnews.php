@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Publicar Post
+                            Publicar Evidencia
                         </h1>
 <?php
 if (isset($_POST['publish'])) {
@@ -21,9 +21,9 @@ $gump = new GUMP();
 $_POST = $gump->sanitize($_POST); 
 
 $gump->validation_rules(array(
-    'title'    => 'required|max_len,120|min_len,15',
-    'tags'   => 'required|max_len,100|min_len,3',
-    'content' => 'required|max_len,20000|min_len,150',
+    //'title'    => 'required|max_len,120|min_len,15',
+  //  'tags'   => 'required|max_len,100|min_len,3',
+   // 'content' => 'required|max_len,20000|min_len,150',
 ));
 $gump->filter_rules(array(
     'title' => 'trim|sanitize_string',
@@ -87,13 +87,13 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
 <form role="form" action="" method="POST" enctype="multipart/form-data">
 
     <div class="form-group">
-        <label for="post_title">Título del Post</label>
+        <label for="post_title">Título</label>
         <input type="text" name="title" placeholder = "Ingresa el título " value= "<?php if(isset($_POST['publish'])) { echo $post_title; } ?>"  class="form-control" required>
     </div>
 
     
     <div class="form-group">
-        <label for="post_image">Imagen de tu Post </label> <font color='brown' > &nbsp;&nbsp;(Tamaño máximo permitido 1024 Kb) </font> 
+        <label for="post_image">Imagen </label> <font color='brown' > &nbsp;&nbsp;(Tamaño máximo permitido 1024 Kb) </font> 
         <input type="file" name="image" >
     </div>
     <div class="form-group">
@@ -101,10 +101,10 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
         <input type="text" name="tags" placeholder = "Ingresa al menos un tag, separado por Coma (,)" value= "<?php if(isset($_POST['publish'])) { echo $post_tag; } ?>" class="form-control" >
     </div>
     <div class="form-group">
-        <label for="post_content">Contenido del Post</label>
+        <label for="post_content">Contenido</label>
         <textarea class="form-control" name="content"  id="" cols="30" rows="15" ><?php if(isset($_POST['publish'])) { echo $post_content; } ?></textarea>
     </div>
-<button type="submit" name="publish" class="btn btn-primary" value="Publish Post">Publicar Post</button>
+<button type="submit" name="publish" class="btn btn-primary" value="Publish Post">Compartir</button>
 
 </form>
 

@@ -12,9 +12,9 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                         <div class="col-xs-4">
-            <a href="publishnews.php" class="btn btn-primary">AGREGAR</a>
+            <a href="publishnews.php" class="btn btn-primary">Agregar Movilidad</a>
             </div>
-                           TODAS LAS EXPERIENCIAS
+                            TODAS EXPERIENCIAS
                         </h1>
                          
 
@@ -37,7 +37,7 @@
                         <th>Imagen</th>
                         <th>Tags</th>
                         <th>Fecha</th>
-                        <th>Ver</th>
+                        <th>Ver </th>
                         <th>Editar</th>
                         <th>Borrar</th>
                         <th>Publicar</th>
