@@ -140,11 +140,12 @@
 
              <div class="col-md-4">
 
-               <?php include 'includes/footer.php';
-?><!-- Footer -->
 </div>
 </div>
 </div>
+
+<?php include 'includes/footer.php';?>
+
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
 
