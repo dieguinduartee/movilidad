@@ -5,7 +5,7 @@ include('connection.php');
 <!DOCTYPE html>
 <html>
 <head>
-<title>CMS</title>
+<title>Movilidad en Ingeniería de Sistemas</title>
  <script src="admin/js/tinymce/tinymce.min.js"></script>
     <script src="admin/js/tinymce/script.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">

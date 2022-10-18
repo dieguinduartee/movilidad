@@ -1,4 +1,4 @@
- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"">
+ <nav class="navbar navbar-inverse navbar-fixed-top barra" role="navigation"">
 			<div class="container">
 
 
@@ -9,14 +9,14 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.php">CMS</a>
+					<a class="navbar-brand" href="index.php">Movilidad</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                     	<li><a href="about.php">Quienes Somos</a></li>
-						 <li><a href="">Post más Leidos</a></li>
-						 <li><a href="register.php">Registro</a></li>
+						 <li><a href="publicposts.php">Ejemplos de movilidad</a></li>
+						 <li><a href="register.php">Registrarse</a></li>
                         
 
 

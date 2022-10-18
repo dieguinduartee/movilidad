@@ -11,7 +11,7 @@
                         <br>
                         <span class="input-group-btn">
                             <button name="login" class="btn btn-primary" type="submit">
-Submit
+Iniciar sesión
                         </button>
                         </span>
                     </div>

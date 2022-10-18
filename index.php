@@ -7,8 +7,9 @@
 <br>
 
 <br>
-<h1>MOVILIDAD</h1>
+<h1 class="titulo">MOVILIDAD</h1>
 
+<?php include 'includes/sidebar.php';?>
 
 <div class="container content-prin profile">
 
@@ -110,8 +111,6 @@ while ($row = mysqli_fetch_assoc($run_query)) {
 	        
 	        <div class="col-md-4">
 
-               <?php include 'includes/sidebar.php';
-?>
 
 	        </div>
 	        
