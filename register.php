@@ -7,8 +7,9 @@
 
  </div>
  	<div class="row">
- 		<div class="col-xs-4"></div>
- 		<div class="col-xs-4">
+		<h1 class="titulo">Registrarme</h1>
+ 		<div class="col-xs-2"></div>
+ 		<div class="col-xs-8">
  		 			<form method="POST" action="registerprocess.php">
 				<div class="form-group">
 					<label for="username">Codigo</label>
@@ -53,7 +54,7 @@ echo "<option value='Estudiante'>Estudiante</option>";
  			</form>
 
  		</div>
- 		<div class="col-xs-4"></div>
+ 		<div class="col-xs-2"></div>
  	</div>
 
  </div>

@@ -9,7 +9,13 @@
 <br>
 <h1 class="titulo">MOVILIDAD</h1>
 
-<?php include 'includes/sidebar.php';?>
+<div class="container">
+  <div class="row">
+      <?php
+      include 'includes/sidebar.php';
+      ?>
+  </div>
+</div>
 
 <div class="container content-prin profile">
 

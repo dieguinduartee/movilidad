@@ -4,6 +4,15 @@
         <!-- Navigation Bar -->
 
     <div class="container">
+
+    <div class="container">
+        <div class="row">
+            <?php
+                include 'includes/sidebar.php';
+            ?>
+        </div>
+    </div>
+
         <div class="row">
 	        <!-- Page Content -->
 	        <div class="col-md-8">
@@ -131,7 +140,7 @@
 
              <div class="col-md-4">
 
-               <?php include 'includes/sidebar.php';
+               <?php include 'includes/footer.php';
 ?><!-- Footer -->
 </div>
 </div>

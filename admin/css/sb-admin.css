@@ -13,7 +13,7 @@ body {
 
 .barra{
     background-color: crimson;
-    color: aliceblue;
+    color: #ffffff;
 }
 
 @media(min-width:768px) {

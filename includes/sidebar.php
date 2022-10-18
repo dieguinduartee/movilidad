@@ -1,4 +1,4 @@
-<div class="well">
+<div class="well registro">
                     <h4>Ingresar</h4>
                     <form method="POST" action="login.php">
                     <div class="">
