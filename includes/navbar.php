@@ -15,7 +15,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                     	<li><a href="about.php">Quienes Somos</a></li>
-						 <li><a href="publicposts.php">Ejemplos de movilidad</a></li>
+						 <li><a href="publicposts.php">Experiencias de movilidad</a></li>
 						 <li><a href="register.php">Registrarse</a></li>
                         
 

@@ -28,7 +28,7 @@
             </ul>
 
 <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
+                <ul class="nav navbar-nav side-nav barra">
                     <li>
                         <a href="index.php" class="active"><i class="fa fa-fw fa-dashboard"></i> Panel de Control</a>
                     </li>
