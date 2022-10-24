@@ -16,15 +16,20 @@ else {
 }
 $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0 ) {
-while ($row = mysqli_fetch_array($run_query)) {
-	$post_title = $row['title'];
-	$post_id = $row['id'];
-	$post_author = $row['author'];
-	$post_date = $row['postdate'];
-	$post_image = $row['image'];
-	$post_content = $row['content'];
-	$post_tags = $row['tag'];
-	$post_status = $row['status'];
+while ($row = mysqli_fetch_array($run_query)) {    
+    $post_id = $row['id'];
+    $post_author = $row['author'];
+    $post_lugar = $row['lugar'];
+    $post_actividad = $row['actividad'];
+    $post_descripcion = $row['descripcion_actividad'];
+    $post_tipo_movilidad = $row['tipo_movilidad'];
+    $post_instituto = $row['instituto'];
+    $post_fecha_inicio = $row['fecha_inicio'];
+    $post_fecha_fin = $row['fecha_fin'];
+    $post_ciudad = $row['ciudad'];
+    $post_dependencia = $row['dependencia'];
+    $post_image = $row['image'];
+    $post_status = $row['status'];
 
 if (isset($_POST['update'])) {
 require "../gump.class.php";
@@ -48,9 +53,9 @@ if($validated_data === false) {
     <?php 
 }
 else {
-    $post_title = $validated_data['title'];
-      $post_tag = $validated_data['tags'];
-      $post_content = $validated_data['content'];
+    $post_actividad = $validated_data['actividad'];
+      $post_descripcion = $validated_data['descripcion'];
+      $post_dependencia = $validated_data['dependencia'];
     $post_date = date('Y-m-d');
     if ($_SESSION['role'] == 'user') {
     	$post_status = 'draft';
@@ -84,7 +89,7 @@ window.location.href = 'editposts.php?id=$id';</script>";
         move_uploaded_file($_FILES['image']['tmp_name'], $folder.$picture);
     }
   
-        $queryupdate = "UPDATE posts SET title = '$post_title' , tag = '$post_tag' , content='$post_content' , 	status = '$post_status' , image = '$picture' , postdate = '$post_date' WHERE id= '$post_id' " ;
+        $queryupdate = "UPDATE posts SET actividad = '$post_actividad' , descripcion_actividad = '$post_descripcion' , lugar='$post_lugar' , tipo_movilidad = '$post_tipo_movilidad', instituto = '$post_instituto', fecha_inicio = '$post_fecha_inicio', fecha_fin = '$post_fecha_fin', ciudad = '$post_ciudad', dependencia = '$post_dependencia', 	status = '$post_status' , image = '$picture' , postdate = '$post_date' WHERE id= '$post_id' " ;
         $result = mysqli_query($conn , $queryupdate) or die(mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
         	echo "<script>alert('Publicación actualizada satisfactoriamente');
@@ -110,53 +115,68 @@ window.location.href = 'editposts.php?id=$id';</script>";
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            UPDATE NEWS 
+                            MODIFICAR MOVILIDAD 
                         </h1>
                         <form role="form" action="" method="POST" enctype="multipart/form-data">
 
-
 	<div class="form-group">
-		<label for="post_title">Post Title</label>
-		<input type="text" name="title" class="form-control" value="<?php echo $post_title;  ?>">
+		<label for='lugar'>Lugar</label>
+		<select class="form-control" name="lugar" id="lugar">
+			<option value='local' <?php $post_lugar == "local" ? print"selected": print"";?>>Local</option>
+			<option value='nacional' <?php $post_lugar == "nacional" ? print"selected": print"";?>>Nacional</option>
+			<option value='internacional' <?php $post_lugar == "internacional" ? print"selected": print"";?>>Internacional</option>
+		</select>
 	</div>
-
+	
 	<div class="form-group">
-		<label for="post_tags">Post Tags</label>
-		<input type="text" name="tags" class="form-control" value="<?php echo  $post_tags; ?>">
-	</div>
-
-	<div class="input-group">
-		<label for="post_status">Post Status</label>
-			<select name="status" class="form-control">
-			<?php if($_SESSION['role'] == 'user') { echo "<option value='draft' >draft</option>"; } else { ?> 
-        <option value="<?php  echo $post_status; ?>"><?php  echo  $post_status;  ?></option>>
-			<?php
-if ($post_status == 'published') {
-	echo "<option value='draft'>Draft</option>";
-} else {
-	echo "<option value='published'>Publish</option>";
-}
-?>
-<?php
-}
-?>
-
-
-</select>
+		<label for='tipo_movilidad'>Tipo de Movilidad</label>
+		<select class="form-control" name="tipo_movilidad" id="tipo_movilidad">
+			<option value='Entrante' <?php $post_tipo_movilidad == "Entrante" ? print"selected": print"";?>>Entrante</option>
+			<option value='Saliente' <?php $post_tipo_movilidad == "Saliente" ? print"selected": print"";?>>Saliente</option>
+		</select>
 	</div>
 
     <div class="form-group">
-        <label for="post_image">Post Image</label>
-		<img class="img-responsive" width="200" src="../allpostpics/<?php echo $post_image; ?>" alt="Photo">
-		<input type="file" name="image"> 
+        <label for="post_actividad">Actividad</label>
+        <input type="text" name="actividad" placeholder = "Ingresa la actividad " value= "<?php echo $post_actividad;  ?>"  class="form-control" required>
     </div>
-	<div class="form-group">
-		<label for="post_content">Post Content</label>
-		<textarea  class="form-control" name="content" id="" cols="30" rows="10"><?php  echo $post_content;  ?>
-		</textarea>
-	</div>
 
-	<button type="submit" name="update" class="btn btn-primary" value="Update Post">Update Post</button>
+	<div class="form-group">
+        <label for="post_descripcion">descripción</label>
+        <input type="text" name="descripcion" placeholder = "Ingresa la descripción " value= "<?php echo $post_descripcion;  ?>"  class="form-control" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="post_instituto">Instituto</label>
+        <input type="text" name="instituto" placeholder = "Ingresa la institución " value= "<?php  echo $post_instituto;  ?>"  class="form-control" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="post_fecha_inicio">Fecha Inicio</label>
+        <input type="date" name="fecha_inicio" placeholder = "Ingresa la fecha de inicio " value= "<?php echo $post_fecha_inicio;  ?>"  class="form-control" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="post_fecha_fin">Fecha Fin</label>
+        <input type="date" name="fecha_fin" placeholder = "Ingresa la fecha de fin " value= "<?php echo $post_fecha_fin;  ?>"  class="form-control" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="post_ciudad">Ciudad</label>
+        <input type="text" name="ciudad" placeholder = "Ingresa la Ciudad " value= "<?php echo $post_ciudad;  ?>"  class="form-control" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="post_dependencia">Dependencia</label>
+        <input type="text" name="dependencia" placeholder = "Ingresa la dependencia " value= "<?php echo $post_dependencia; ?>"  class="form-control" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="post_image">Evidencia </label> <font color='brown' > &nbsp;&nbsp;(Tamaño máximo permitido 1024 Kb) </font> 
+        <input type="file" name="image" >
+    </div>
+	
+	<button type="submit" name="update" class="btn btn-primary" value="Update Post">Modificar movilidad</button>
 </form>
 </div>
 </div>
