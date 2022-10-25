@@ -17,14 +17,20 @@ else {
 $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0 ) {
 while ($row = mysqli_fetch_array($run_query)) {
-	$post_title = $row['title'];
-	$post_id = $row['id'];
-	$post_author = $row['author'];
-	$post_date = $row['postdate'];
-	$post_image = $row['image'];
-	$post_content = $row['content'];
-	$post_tags = $row['tag'];
-	$post_status = $row['status'];
+    $post_id = $row['id'];
+    $post_author = $row['author'];
+    $post_lugar = $row['lugar'];
+    $post_actividad = $row['actividad'];
+    $post_descripcion = $row['descripcion_actividad'];
+    $post_tipo_movilidad = $row['tipo_movilidad'];
+    $post_instituto = $row['instituto'];
+    $post_fecha_inicio = $row['fecha_inicio'];
+    $post_fecha_fin = $row['fecha_fin'];
+    $post_ciudad = $row['ciudad'];
+    $post_dependencia = $row['dependencia'];
+    $post_image = $row['image'];
+    $post_status = $row['status'];
+    
 
 	?>
    
@@ -43,13 +49,20 @@ while ($row = mysqli_fetch_array($run_query)) {
 
                 
                 <hr>
-	       		<p><h2><a href="#"><?php echo $post_title; ?></a></h2></p>
-                <p><h3>Fuente <a href="#"><?php echo $post_author; ?></a></h3></p>
-                <p><span class="glyphicon glyphicon-time"></span>Publicado en <?php echo $post_date; ?></p>
+	       		<p><h2><a href="#"><?php echo $post_actividad; ?></a></h2></p>
+                <p><h3>Movilidad <a href="#"><?php echo $post_descripcion; ?></a></h3></p>
+                <p>Modalidad: <?php echo $post_tipo_movilidad;?> -  <?php $post_author;?></p>
+                <p>Lugar: <?php echo $post_lugar;?></p>
+                <p><span class="glyphicon glyphicon-time"></span>Fecha de inicio de movilidad <?php echo $post_fecha_inicio; ?></p>
+                <p><span class="glyphicon glyphicon-time"></span>Fecha de fin de movilidad <?php echo $post_fecha_fin; ?></p>
+				<p>Institución: <?php echo $post_instituto; ?></p>
+                <p>Ciudad: <?php echo $post_ciudad; ?></p>
+                <p>Dependencia: <?php echo $post_dependencia;?></p>
+				
                 <hr>
+                <h3>Evidencias:</h3>
                 <img class="img-responsive img-rounded" src="../allpostpics/<?php echo $post_image; ?>" alt="900 * 300">
                 <hr>
-                <p><?php echo $post_content; ?></p>
 
                 <hr>
                 <?php } }
@@ -66,7 +79,7 @@ while ($row = mysqli_fetch_array($run_query)) {
         </div>
 
    
-
+	<?php include 'includes/adminfooter.php';?>
     
     <script src="js/jquery.js"></script>
 

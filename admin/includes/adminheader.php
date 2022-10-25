@@ -6,12 +6,12 @@ if (isset($_SESSION['role'])) {
 }
 else {
     echo "<script>alert('Necesitas ingresar primero');
-    window.location.href='../index';</script>";	
+    window.location.href='../index.php';</script>";	
 }
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -22,7 +22,7 @@ else {
     <meta name="author" content="">
 
     <title>Dashboard - <?php echo $_SESSION['username']; ?></title>
-    <link rel="icon" type="image/png" href="../img/vimeo.png">
+    <link rel="icon" type="image/png" href="../image/favicon.ico">
     
     <link href="css/bootstrap.min.css" rel="stylesheet">
  <script src="js/tinymce/tinymce.min.js"></script>

@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Publicar Evidencia
+                            Agregar Movilidad
                         </h1>
 <?php
 if (isset($_POST['publish'])) {
@@ -35,14 +35,26 @@ if($validated_data === false) {
     ?>
     <center><font color="red" > <?php echo $gump->get_readable_errors(true); ?> </font></center>
     <?php 
-    $post_title = $_POST['title'];
-      $post_tag = $_POST['tags'];
-      $post_content = $_POST['content'];
+    $post_actividad = $_POST['actividad'];
+      $post_descripcion = $_POST['descripcion'];
+      $post_lugar = $_POST['lugar'];
+      $post_tipo_movilidad = $_POST['tipo_movilidad'];
+      $post_instituto = $_POST['instituto'];
+      $post_fecha_inicio = $_POST['fecha_inicio'];
+      $post_fecha_fin = $_POST['fecha_fin'];
+      $post_ciudad = $_POST['ciudad'];
+      $post_dependencia = $_POST['dependencia'];
 }
 else {
-    $post_title = $validated_data['title'];
-      $post_tag = $validated_data['tags'];
-      $post_content = $validated_data['content'];
+    $post_actividad = $_POST['actividad'];
+    $post_descripcion = $_POST['descripcion'];
+    $post_lugar = $_POST['lugar'];
+    $post_tipo_movilidad = $_POST['tipo_movilidad'];
+    $post_instituto = $_POST['instituto'];
+    $post_fecha_inicio = $_POST['fecha_fin'];
+    $post_fecha_fin = $_POST['fecha_fin'];
+    $post_ciudad = $_POST['ciudad'];
+    $post_dependencia = $_POST['dependencia'];
 if (isset($_SESSION['firstname'])) {
         $post_author = $_SESSION['firstname'];
     }
@@ -69,14 +81,14 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
         $imgext = strtolower(pathinfo($image, PATHINFO_EXTENSION) );
         $picture = rand(1000 , 1000000) .'.'.$imgext;
         if(move_uploaded_file($_FILES['image']['tmp_name'], $folder.$picture)) {
-            $query = "INSERT INTO posts (title,author,postdate,image,content,status,tag) VALUES ('$post_title' , '$post_author' , '$post_date' , '$picture' , '$post_content' , '$post_status', '$post_tag') ";
+            $query = "INSERT INTO posts (author,actividad,descripcion_actividad, lugar, tipo_movilidad, instituto,fecha_inicio, fecha_fin, ciudad, dependencia,postdate,image,status) VALUES ('$post_author','$post_actividad' , '$post_descripcion' , '$post_lugar', '$post_tipo_movilidad', '$post_instituto','$post_fecha_inicio', '$post_fecha_fin', '$post_ciudad', '$post_dependencia',  '$post_date' , '$picture'  , '$post_status') ";
             $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
             if (mysqli_affected_rows($conn) > 0) {
-                echo "<script> alert('Información publicada con éxito. Se publicará después de que el administrador lo apruebe');
+                echo "<script> alert('Movilidad publicada con éxito. Se publicará después de que el administrador lo apruebe');
                 window.location.href='posts.php';</script>";
             }
             else {
-                "<script> alert('Error al publicar ... intente de nuevo');</script>";
+                "<script> alert('Error al agregar movilidad ... intente de nuevo');</script>";
             }
         }
     }
@@ -85,26 +97,65 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
 ?>
 
 <form role="form" action="" method="POST" enctype="multipart/form-data">
+		
+	<div class="form-group">
+		<label for='lugar'>Lugar</label>
+		<select class="form-control" name="lugar" id="lugar">
+			<option value='local'>Local</option>
+			<option value='nacional'>Nacional</option>
+			<option value='internacional'>Internacional</option>
+		</select>
+	</div>
+	
+	<div class="form-group">
+		<label for='tipo_movilidad'>Tipo de Movilidad</label>
+		<select class="form-control" name="tipo_movilidad" id="tipo_movilidad">
+			<option value='Entrante'>Entrante</option>
+			<option value='Saliente'>Saliente</option>
+		</select>
+	</div>
 
     <div class="form-group">
-        <label for="post_title">Título</label>
-        <input type="text" name="title" placeholder = "Ingresa el título " value= "<?php if(isset($_POST['publish'])) { echo $post_title; } ?>"  class="form-control" required>
+        <label for="post_actividad">Actividad</label>
+        <input type="text" name="actividad" placeholder = "Ingresa la actividad " value= "<?php if(isset($_POST['actividad'])) { echo $post_actividad; } ?>"  class="form-control" required>
     </div>
 
+	<div class="form-group">
+        <label for="post_descripcion">descripción</label>
+        <input type="text" name="descripcion" placeholder = "Ingresa la descripción " value= "<?php if(isset($_POST['descripcion'])) { echo $post_descripcion; } ?>"  class="form-control" required>
+    </div>
     
     <div class="form-group">
-        <label for="post_image">Imagen </label> <font color='brown' > &nbsp;&nbsp;(Tamaño máximo permitido 1024 Kb) </font> 
+        <label for="post_instituto">Instituto</label>
+        <input type="text" name="instituto" placeholder = "Ingresa la institución " value= "<?php if(isset($_POST['institucion'])) { echo $post_instituto; } ?>"  class="form-control" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="post_fecha_inicio">Fecha Inicio</label>
+        <input type="date" name="fecha_inicio" placeholder = "Ingresa la fecha de inicio " value= "<?php if(isset($_POST['fecha_inicio'])) { echo $post_fecha_inicio; } ?>"  class="form-control" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="post_fecha_fin">Fecha Fin</label>
+        <input type="date" name="fecha_fin" placeholder = "Ingresa la fecha de fin " value= "<?php if(isset($_POST['fecha_fin'])) { echo $post_fecha_fin; } ?>"  class="form-control" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="post_ciudad">Ciudad</label>
+        <input type="text" name="ciudad" placeholder = "Ingresa la Ciudad " value= "<?php if(isset($_POST['ciudad'])) { echo $post_ciudad; } ?>"  class="form-control" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="post_dependencia">Dependencia</label>
+        <input type="text" name="dependencia" placeholder = "Ingresa la dependencia " value= "<?php if(isset($_POST['dependencia'])) { echo $post_dependencia; } ?>"  class="form-control" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="post_image">Evidencia </label> <font color='brown' > &nbsp;&nbsp;(Tamaño máximo permitido 1024 Kb) </font> 
         <input type="file" name="image" >
     </div>
-    <div class="form-group">
-        <label for="post_tag">Tags</label>
-        <input type="text" name="tags" placeholder = "Ingresa al menos un tag, separado por Coma (,)" value= "<?php if(isset($_POST['publish'])) { echo $post_tag; } ?>" class="form-control" >
-    </div>
-    <div class="form-group">
-        <label for="post_content">Contenido</label>
-        <textarea class="form-control" name="content"  id="" cols="30" rows="15" ><?php if(isset($_POST['publish'])) { echo $post_content; } ?></textarea>
-    </div>
-<button type="submit" name="publish" class="btn btn-primary" value="Publish Post">Compartir</button>
+
+<button type="submit" name="publish" class="btn btn-primary" value="Publish Post">Agregar Movilidad</button>
 
 </form>
 
@@ -115,7 +166,7 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
 
         </div>
         
-   <?php 'includes/admin_footer.php';?> -->
+   <?php 'includes/admin_footer.php';?>
     </div>
     
     <script src="js/jquery.js"></script>

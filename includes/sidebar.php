@@ -1,4 +1,4 @@
-<div class="well">
+<div class="well registro">
                     <h4>Ingresar</h4>
                     <form method="POST" action="login.php">
                     <div class="">
@@ -11,7 +11,7 @@
                         <br>
                         <span class="input-group-btn">
                             <button name="login" class="btn btn-primary" type="submit">
-Submit
+Iniciar sesión
                         </button>
                         </span>
                     </div>

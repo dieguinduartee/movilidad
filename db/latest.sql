@@ -15,7 +15,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8mb4 */
 
 --
 -- Base de datos: `latest`
@@ -28,26 +28,31 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `posts` (
-  `id` int(4) NOT NULL,
-  `title` varchar(225) NOT NULL,
+  `id` integer(4) NOT NULL,
+  `actividad` varchar(255) NOT NULL,
+  `descripcion_actividad` text NOT NULL,
+  `tipo_movilidad` varchar(255) NOT NULL,
+  `instituto` varchar(255) DEFAULT NULL,
+  `fecha_inicio` date DEFAULT NULL,
+  `fecha_fin` date DEFAULT NULL,
+  `ciudad` varchar(255) DEFAULT NULL,
   `author` varchar(225) NOT NULL,
   `postdate` date NOT NULL,
   `image` text NOT NULL,
-  `content` text NOT NULL,
   `updated_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `status` varchar(225) NOT NULL,
-  `tag` varchar(300) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` varchar(225) NOT NULL
+);
 
 --
 -- Volcado de datos para la tabla `posts`
 --
 
+/*
 INSERT INTO `posts` (`id`, `title`, `author`, `postdate`, `image`, `content`, `updated_on`, `status`, `tag`) VALUES
 (40, 'Viaje a Argentina', 'juan', '2022-10-12', '309091.png', 'liquidaci&oacute;n de comisiones del &aacute;rea comercial, armado de premios de productividad, liquidaci&oacute;n de vi&aacute;ticos seg&uacute;n convenio, armado de presupuestos.', '2022-10-12 21:37:22', 'published', 'aregentina'),
 (41, 'HERMOSOS VIAJE QUE SE VIVIO EN CHILE', 'diego alexis duarte martinez', '2022-10-12', '359500.jpeg', 'UNO DE LOS MEJORES VIAJES QUE TUVIMOS UNA EXPERIENCIA UNICA AQUI VA MAS TEXTO', '2022-10-12 21:53:56', 'published', 'CHILE'),
 (42, 'EXPERICIA DE CIENCIAS DE COMPUTACION EN PERU', 'diego alexis duarte martinez', '2022-10-12', '234302.jpg', 'GRAN VIAJE QUE SE VIVIO LA CIENCIA DE LA COMPUTACION', '2022-10-12 21:55:35', 'published', 'PERU');
-
+*/
 -- --------------------------------------------------------
 
 --
@@ -55,7 +60,7 @@ INSERT INTO `posts` (`id`, `title`, `author`, `postdate`, `image`, `content`, `u
 --
 
 CREATE TABLE `users` (
-  `id` int(4) NOT NULL,
+  `id` integer(4) NOT NULL,
   `username` varchar(225) NOT NULL,
   `firstname` varchar(225) NOT NULL,
   `lastname` varchar(225) NOT NULL,
