@@ -51,7 +51,7 @@ else {
     $post_lugar = $_POST['lugar'];
     $post_tipo_movilidad = $_POST['tipo_movilidad'];
     $post_instituto = $_POST['instituto'];
-    $post_fecha_inicio = $_POST['fecha_fin'];
+    $post_fecha_inicio = $_POST['fecha_inicio'];
     $post_fecha_fin = $_POST['fecha_fin'];
     $post_ciudad = $_POST['ciudad'];
     $post_dependencia = $_POST['dependencia'];
