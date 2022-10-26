@@ -85,7 +85,7 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
             $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
             if (mysqli_affected_rows($conn) > 0) {
                 echo "<script> alert('Movilidad publicada con éxito. Se publicará después de que el administrador lo apruebe');
-                window.location.href='posts.php';</script>";
+                window.location.href='movilidades.php';</script>";
             }
             else {
                 "<script> alert('Error al agregar movilidad ... intente de nuevo');</script>";

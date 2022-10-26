@@ -37,10 +37,10 @@
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="collapse" data-target="#posts"><i class="fa fa-fw fa-file-text"></i> Movilidad <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="posts" class="collapse">
                             <li>
-                                <a href="./posts.php">Ver todos las movilidades</a>
+                                <a href="./movilidades.php">Ver todos las movilidades</a>
                             </li>
                             <li>
-                                <a href="./publishnews.php">Agregar una nueva movilidad</a>
+                                <a href="./publishmovilidades.php">Agregar una nueva movilidad</a>
                             </li>
                         </ul>
                         <li>

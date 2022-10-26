@@ -83,8 +83,8 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td>$post_ciudad</td>";
     echo "<td>$post_dependencia</td>";
     echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Post Image' ></td>";
-    echo "<td><a href='post.php?post=$post_id' style='color:green'>Ver</a></td>";
-    echo "<td><a href='editposts.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
+    echo "<td><a href='movilidad.php?post=$post_id' style='color:green'>Ver</a></td>";
+    echo "<td><a href='editmovilidad.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
     echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta movilidad?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>Eliminar</a></td>";
     echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas publicar esta movilidad?')\"href='?pub=$post_id'><i class='fa fa-times' style='color: red;'></i>Publicar</a></td>";
 
@@ -93,8 +93,8 @@ while ($row = mysqli_fetch_array($run_query)) {
 }
 }
 else {
-    echo "<script>alert('No hay publicaciones aún');
-    window.location.href= 'publishnews.php';</script>";
+    echo "<script>alert('No hay Movilidades aún');
+    window.location.href= 'publishmovilidades.php';</script>";
 }
 ?>
 
@@ -112,8 +112,8 @@ else {
         $del_query = "DELETE FROM posts WHERE id='$post_del'";
         $run_del_query = mysqli_query($conn, $del_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
-            echo "<script>alert('Publicación eliminada con éxito');
-            window.location.href='posts.php';</script>";
+            echo "<script>alert('Movilidad eliminada con éxito');
+            window.location.href='movilidades.php';</script>";
         }
         else {
          echo "<script>alert('Ocurrió un error. Intente nuevamente!');</script>";   
@@ -125,7 +125,7 @@ else {
         $run_pub_query = mysqli_query($conn, $pub_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
             echo "<script>alert('publicado satisfactoriamente');
-            window.location.href='posts.php';</script>";
+            window.location.href='movilidades.php';</script>";
         }
         else {
          echo "<script>alert('Ocurrió un error. Intente nuevamente');</script>";   
@@ -199,10 +199,10 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td>$post_fecha_fin</td>";
     echo "<td>$post_ciudad</td>";
     echo "<td>$post_dependencia</td>";
-    echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Post Image' ></td>";
-    echo "<td><a href='post.php?post=$post_id' style='color:green'>Ver</a></td>";
-    echo "<td><a href='editposts.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
-    echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta publicación?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>borrar</a></td>";
+    echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Imagen de movilidad' ></td>";
+    echo "<td><a href='movilidad.php?post=$post_id' style='color:green'>Ver</a></td>";
+    echo "<td><a href='editmovilidad.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
+    echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta movilidad?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>borrar</a></td>";
 
     echo "</tr>";
 
@@ -210,7 +210,7 @@ while ($row = mysqli_fetch_array($run_query)) {
 }
 else {
     echo "<script>alert('¡Aún no has publicado nada! Comienza a publicar ahora');
-    window.location.href= 'publishnews.php';</script>";
+    window.location.href= 'publishmovilidades.php';</script>";
 }
 ?>
 
@@ -229,7 +229,7 @@ else {
         $run_del_query = mysqli_query($conn, $del_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
             echo "<script>alert('Publicación borrada satisfactoriamente');
-            window.location.href='posts.php';</script>";
+            window.location.href='movilidades.php';</script>";
         }
         else {
          echo "<script>alert('Ocurrió un error. Intente nuevamente!');</script>";   
@@ -241,7 +241,7 @@ else {
         $run_pub_query = mysqli_query($conn, $pub_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
             echo "<script>alert('publicado satisfactoriamente');
-            window.location.href='posts.php';</script>";
+            window.location.href='movilidades.php';</script>";
         }
         else {
          echo "<script>alert('Ocurrió un error. Intente nuevamente!');</script>";   
@@ -314,9 +314,9 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td>$post_fecha_fin</td>";
     echo "<td>$post_ciudad</td>";
     echo "<td>$post_dependencia</td>";
-    echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Post Image' ></td>";
-    echo "<td><a href='post.php?post=$post_id' style='color:green'>Ver</a></td>";
-    echo "<td><a href='editposts.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
+    echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Movilidad Imagen' ></td>";
+    echo "<td><a href='movilidad.php?post=$post_id' style='color:green'>Ver</a></td>";
+    echo "<td><a href='editmovilidad.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
     echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta publicación?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>delete</a></td>";
 
     echo "</tr>";
@@ -325,7 +325,7 @@ while ($row = mysqli_fetch_array($run_query)) {
 }
 else {
     echo "<script>alert('¡Aún no has publicado nada! Comienza a publicar ahora');
-    window.location.href= 'publishnews.php';</script>";
+    window.location.href= 'publishmovilidades.php';</script>";
 }
 ?>
  </tbody>
@@ -340,8 +340,8 @@ else {
         $del_query = "DELETE FROM posts WHERE id='$post_del' AND author='$currentuser'";
         $run_del_query = mysqli_query($conn, $del_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
-            echo "<script>alert('Publicación eliminada con éxito');
-            window.location.href='posts.php';</script>";
+            echo "<script>alert('Movilidad eliminada con éxito');
+            window.location.href='movilidades.php';</script>";
         }
         else {
          echo "<script>alert('Ocurrió un error. Intenta nuevamente');</script>";   
@@ -356,6 +356,10 @@ else {
 </div>
 </div>
 </div>
+
+<?php include 'includes/adminfooter.php';
+?>
+
  <script src="js/jquery.js"></script>
 
     

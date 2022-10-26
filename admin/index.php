@@ -41,7 +41,7 @@ echo "<div class='text-right huge'>{$post_num}</div>";
                                     </div>
                                 </div>
                             </div>
-                            <a href="posts.php">
+                            <a href="movilidades.php">
                                 <div class="panel-footer">
                                     <span class="pull-left">VER TODAS LAS EXPERIENCIAS</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -88,8 +88,9 @@ echo "<div class='text-right huge'>{$user_num}</div>";
             
         </div>
         
+</div>
+        
    <?php 'includes/adminfooter.php';?>
-    </div>
     <script src="js/jquery.js"></script>
 
   
