@@ -93,7 +93,7 @@ window.location.href = 'editposts.php?id=$id';</script>";
         $result = mysqli_query($conn , $queryupdate) or die(mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
         	echo "<script>alert('Publicación actualizada satisfactoriamente');
-        	window.location.href= 'posts.php';</script>";
+        	window.location.href= 'movilidades.php';</script>";
         }
         else {
         	echo "<script>alert('Error! .. vuélvelo a intentar');</script>";

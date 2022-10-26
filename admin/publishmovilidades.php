@@ -51,7 +51,7 @@ else {
     $post_lugar = $_POST['lugar'];
     $post_tipo_movilidad = $_POST['tipo_movilidad'];
     $post_instituto = $_POST['instituto'];
-    $post_fecha_inicio = $_POST['fecha_fin'];
+    $post_fecha_inicio = $_POST['fecha_inicio'];
     $post_fecha_fin = $_POST['fecha_fin'];
     $post_ciudad = $_POST['ciudad'];
     $post_dependencia = $_POST['dependencia'];
@@ -85,7 +85,7 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
             $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
             if (mysqli_affected_rows($conn) > 0) {
                 echo "<script> alert('Movilidad publicada con éxito. Se publicará después de que el administrador lo apruebe');
-                window.location.href='posts.php';</script>";
+                window.location.href='movilidades.php';</script>";
             }
             else {
                 "<script> alert('Error al agregar movilidad ... intente de nuevo');</script>";
