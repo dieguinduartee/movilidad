@@ -9,7 +9,7 @@ else {
 }
 $currentuser = $_SESSION['firstname'];
 if ($_SESSION['role'] == 'superadmin') {
-$query = "SELECT * FROM posts WHERE id='$id'";
+    $query = "SELECT * FROM evidencia WHERE id='$id'";
 }
 else {
     $query = "SELECT * FROM evidencia WHERE id='$id' AND author = '$currentuser'" ;
@@ -17,13 +17,12 @@ else {
 $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0 ) {
 while ($row = mysqli_fetch_array($run_query)) {
-	$post_title = $row['title'];
 	$post_id = $row['id'];
-	$post_author = $row['author'];
-	$post_date = $row['postdate'];
+	$post_movilidad_ev = $row['movilidad'];
+	$post_descripcion = $row['descripcion'];
+	//$post_author = $row['author'];
+	//$post_date = $row['postdate'];
 	$post_image = $row['image'];
-	$post_content = $row['content'];
-	$post_tags = $row['tag'];
 	$post_status = $row['status'];
 
 if (isset($_POST['update'])) {
@@ -113,15 +112,38 @@ window.location.href = 'editposts.php?id=$id';</script>";
                             ACTUALIZAR MOVILIDAD 
                         </h1>
                         <form role="form" action="" method="POST" enctype="multipart/form-data">
-
-
-	<div class="form-group">
-		<label for="post_title">Movilidad</label>
-		<input type="text" name="movilidad" class="form-control" value="<?php echo $post_title;  ?>">
-	</div>
+<div class="form-group">
+        <label for="post_movilidad">Movilidad</label>
+        <?php $post_author = $_SESSION['firstname']; ?>
+        <?php $query = "SELECT id, actividad, descripcion_actividad, ciudad FROM movilidad  WHERE author = '$post_author' ORDER BY id DESC";
+            $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
+            if (mysqli_num_rows($run_query) > 0) {
+        ?>
+        
+       	<select class="form-control" name="post_movilidad" id="post_movilidad">
+       		<?php 
+       		while ($row = mysqli_fetch_array($run_query)) {
+           	    $post_id = $row['id'];
+           	    $post_actividad = $row['actividad'];
+           	    $post_descripción_mov = $row['descripcion_actividad'];
+           	    $post_ciudad = $row['ciudad'];
+           	    echo "<option value='$post_id' $post_id == $post_movilidad_ev ? print'selected'> $post_actividad.' '.$post_descripción_mov.' - '.$post_ciudad </option>";
+           	
+       		   }
+            }
+            
+            else {
+                echo "<script>alert('No hay movilidades aún, crea una movilidad primero');
+                window.location.href= 'publishmovilidades.php';</script>";
+            }
+           	    ?>
+           	    
+			
+		</select>
+    </div>
 
 	<div class="input-group">
-		<label for="post_status">Movilidad</label>
+		<label for="post_status">Estado</label>
 			<select name="status" class="form-control">
 			<?php if($_SESSION['role'] == 'user') { echo "<option value='draft' >draft</option>"; } else { ?> 
         <option value="<?php  echo $post_status; ?>"><?php  echo  $post_status;  ?></option>>
@@ -141,13 +163,13 @@ if ($post_status == 'published') {
 	</div>
 
     <div class="form-group">
-        <label for="post_image">Post Image</label>
+        <label for="post_image">Imagen</label>
 		<img class="img-responsive" width="200" src="../allpostpics/<?php echo $post_image; ?>" alt="Photo">
 		<input type="file" name="image"> 
     </div>
 	<div class="form-group">
 		<label for="post_descripcion">Descripción:</label>
-		<textarea  class="form-control" name="post_descripcion" id="" cols="30" rows="10"><?php  echo $post_content;  ?>
+		<textarea  class="form-control" name="post_descripcion" id="" cols="30" rows="10"><?php  echo $post_descripcion;  ?>
 		</textarea>
 	</div>
 
@@ -160,10 +182,9 @@ if ($post_status == 'published') {
 </div>
 
 <?php include 'includes/adminfooter.php';?>
+    <script src="js/jquery.js"></script>
 
-<script src="js/jquery.js"></script>
-
-    
+  
     <script src="js/bootstrap.min.js"></script>
 
 </body>

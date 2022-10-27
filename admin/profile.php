@@ -152,7 +152,9 @@ echo "<option value='Estudiante'>Estudiante</option>";
 
         </div>
         
-   <?php 'includes/admin_footer.php';?> -->
+<?php include 'includes/adminheader.php';
+
+?>
     </div>
     
     <script src="js/jquery.js"></script>

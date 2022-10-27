@@ -307,6 +307,7 @@ else {
 </div>
 </div>
 </div>
+<
  <script src="js/jquery.js"></script>
 
     

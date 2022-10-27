@@ -28,7 +28,6 @@ while ($row = mysqli_fetch_array($run_query)) {
     $post_fecha_fin = $row['fecha_fin'];
     $post_ciudad = $row['ciudad'];
     $post_dependencia = $row['dependencia'];
-    $post_image = $row['image'];
     $post_status = $row['status'];
 
 if (isset($_POST['update'])) {
@@ -63,33 +62,8 @@ else {
     $post_status = $_POST['status'];
 }
 
-    
 
-    $image = $_FILES['image']['name'];
-    $ext = $_FILES['image']['type'];
-    $validExt = array ("image/gif",  "image/jpeg",  "image/pjpeg", "image/png");
-    if (empty($image)) {
-    	$picture = $post_image;
-    }
-    else if ($_FILES['image']['size'] <= 0 || $_FILES['image']['size'] > 1024000 )
-    {
-echo "<script>alert('Tamaño de imagen incorrecto');
-window.location.href = 'editmovilidad.php?id=$id';</script>";
-    
-    }
-    else if (!in_array($ext, $validExt)){
-        echo "<script>alert('Imagen no válida');
-        window.location.href = 'editmovilidad.php?id=$id';</script>";
-    exit();
-    }
-    else {
-        $folder  = '../allpostpics/';
-        $imgext = strtolower(pathinfo($image, PATHINFO_EXTENSION) );
-        $picture = rand(1000 , 1000000) .'.'.$imgext;
-        move_uploaded_file($_FILES['image']['tmp_name'], $folder.$picture);
-    }
-  
-        $queryupdate = "UPDATE movilidad SET actividad = '$post_actividad' , descripcion_actividad = '$post_descripcion' , lugar='$post_lugar' , tipo_movilidad = '$post_tipo_movilidad', instituto = '$post_instituto', fecha_inicio = '$post_fecha_inicio', fecha_fin = '$post_fecha_fin', ciudad = '$post_ciudad', dependencia = '$post_dependencia', 	status = '$post_status' , image = '$picture' , postdate = '$post_date' WHERE id= '$post_id' " ;
+        $queryupdate = "UPDATE movilidad SET actividad = '$post_actividad' , descripcion_actividad = '$post_descripcion' , lugar='$post_lugar' , tipo_movilidad = '$post_tipo_movilidad', instituto = '$post_instituto', fecha_inicio = '$post_fecha_inicio', fecha_fin = '$post_fecha_fin', ciudad = '$post_ciudad', dependencia = '$post_dependencia', 	status = '$post_status' , postdate = '$post_date' WHERE id= '$post_id' " ;
         $result = mysqli_query($conn , $queryupdate) or die(mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
         	echo "<script>alert('Publicación actualizada satisfactoriamente');
@@ -170,11 +144,6 @@ window.location.href = 'editmovilidad.php?id=$id';</script>";
         <label for="post_dependencia">Dependencia</label>
         <input type="text" name="dependencia" placeholder = "Ingresa la dependencia " value= "<?php echo $post_dependencia; ?>"  class="form-control" required>
     </div>
-    
-    <div class="form-group">
-        <label for="post_image">Evidencia </label> <font color='brown' > &nbsp;&nbsp;(Tamaño máximo permitido 1024 Kb) </font> 
-        <input type="file" name="image" >
-    </div>
 	
 	<button type="submit" name="update" class="btn btn-primary" value="Update Post">Modificar movilidad</button>
 </form>
@@ -185,13 +154,11 @@ window.location.href = 'editmovilidad.php?id=$id';</script>";
 </div>
 
 <?php include 'includes/adminfooter.php';?>
+    <script src="js/jquery.js"></script>
 
-<script src="js/jquery.js"></script>
-
-    
+  
     <script src="js/bootstrap.min.js"></script>
 
 </body>
 
 </html>
-

@@ -31,7 +31,6 @@
             <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Autor</th>
                         <th>Movilidad</th>
                         <th>Descripción</th>
                         <th>Imagen</th>
@@ -51,14 +50,12 @@ if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
     $post_id = $row['id'];
     $post_movilidad = $row['movilidad'];
-    $post_author = $row['author'];
     $post_image = $row['image'];
     $post_descripcion = $row['descripcion'];
     $post_status = $row['status'];
 
     echo "<tr>";
     echo "<td>$post_id</td>";
-    echo "<td>$post_author</td>";
     echo "<td>$post_movilidad</td>";
     echo "<td>$post_descripcion</td>";
     echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Post Image' ></td>";
@@ -138,15 +135,14 @@ else if($_SESSION['role'] == 'admin') {
                 </thead>
                 <tbody>
 
-                 <?php
+<?php
 $currentuser = $_SESSION['firstname'];
-$query = "SELECT * FROM evidencia WHERE author = '$currentuser' ORDER BY id DESC";
+$query = "SELECT e.id, e.movilidad, e.image, e.descripcion, e.updated_on, e.status FROM evidencia as e INNER JOIN movilidad as m ON m.id = e.movilidad WHERE m.author = '$currentuser' ORDER BY e.id DESC;";
 $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
     $post_id = $row['id'];
     $post_movilidad = $row['movilidad'];
-    $post_author = $row['author'];
     $post_date = $row['postdate'];
     $post_image = $row['image'];
     $post_descripcion = $row['descripcion'];
@@ -154,7 +150,6 @@ while ($row = mysqli_fetch_array($run_query)) {
 
     echo "<tr>";
     echo "<td>$post_id</td>";
-    echo "<td>$post_author</td>";
     echo "<td>$post_movilidad</td>";
     echo "<td>$post_descripcion</td>";
     echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Evidencia imagen' ></td>";
@@ -207,7 +202,8 @@ else {
         }
         }
 
-?>
+        
+        ?>
 <?php 
 }
 else {
@@ -221,7 +217,6 @@ else {
  <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Autor</th>
                         <th>Movilidad</th>
                         <th>Descripción</th>
                         <th>Imagen</th>
@@ -235,21 +230,18 @@ else {
                  <?php
                  $currentuser = $_SESSION['firstname'];
 
-$query = "SELECT * FROM evidencia WHERE author = '$currentuser' ORDER BY id DESC";
+$query = "SELECT e.id, e.movilidad, e.image, e.descripcion, e.updated_on, e.status FROM evidencia as e INNER JOIN movilidad as m ON m.id = e.movilidad WHERE m.author = '$currentuser' ORDER BY e.id DESC;";
 $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
     $post_id = $row['id'];
     $post_movilidad = $row['movilidad'];
-    $post_author = $row['author'];
-    $post_date = $row['postdate'];
     $post_image = $row['image'];
     $post_descripcion = $row['descripcion'];
     $post_status = $row['status'];
 
     echo "<tr>";
     echo "<td>$post_id</td>";
-    echo "<td>$post_author</td>";
     echo "<td>$post_movilidad</td>";
     echo "<td>$post_descripcion</td>";
     echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Evidencia Imagen' ></td>";

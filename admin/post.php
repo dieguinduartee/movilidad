@@ -12,14 +12,15 @@ if ($_SESSION['role'] == 'superadmin') {
 $query = "SELECT * FROM evidencia WHERE id='$post'";
 }
 else {
-    $query = "SELECT * FROM evidencia WHERE id='$post' AND author = '$currentuser'" ;
+    $query = "SELECT m.actividad,m.descripcion_actividad, e.id, e.movilidad, e.image, e.descripcion, e.updated_on, e.status FROM evidencia as e INNER JOIN movilidad as m ON m.id = e.movilidad WHERE m.author = '$currentuser' ORDER BY e.id DESC;" ;
 }
 $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0 ) {
 while ($row = mysqli_fetch_array($run_query)) {
     $post_id = $row['id'];
+    $post_actividad = $row['actividad'];
+    $post_actividad_des = $row['descripcion_actividad']; 
     $post_movilidad = $row['movilidad'];
-    $post_author = $row['author'];
     $post_image = $row['image'];
     $post_descripcion = $row['descripcion'];
     $post_status = $row['status'];
@@ -41,8 +42,8 @@ while ($row = mysqli_fetch_array($run_query)) {
 
                 
                 <hr>
-	       		<p><h2><a href="#"><?php echo $post_movilidad; ?></a></h2></p>
-                <p><h3>Fuente <a href="#"><?php echo $post_author; ?></a></h3></p>
+	       		<p><h2><a href="movilidad.php?post=<?php echo $post_movilidad;?>"><?php echo $post_actividad; ?></a></h2></p>
+                <p><h3>Fuente <a href="#"><?php echo $post_actividad_des; ?></a></h3></p>
                 <p><span class=""></span>Descripción: <?php echo $post_descripcion; ?></p>
                 <hr>
                 <img class="img-responsive img-rounded" src="../allpostpics/<?php echo $post_image; ?>" alt="900 * 300">
@@ -64,12 +65,14 @@ while ($row = mysqli_fetch_array($run_query)) {
         </div>
 
    
-	<?php include 'includes/adminfooter.php';?>
-	
-    
-    <script src="js/jquery.js"></script>
+    <?php include ('includes/adminfooter.php');
+    ?>
+       <script src="js/jquery.js"></script>
 
-    
+  
     <script src="js/bootstrap.min.js"></script>
+
 </body>
+
 </html>
+   

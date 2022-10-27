@@ -35,14 +35,12 @@ if($validated_data === false) {
     ?>
     <center><font color="red" > <?php echo $gump->get_readable_errors(true); ?> </font></center>
     <?php 
-    $post_title = $_POST['title'];
-      $post_tag = $_POST['tags'];
-      $post_content = $_POST['content'];
+      $post_movilidad = $_POST['post_movilidad'];
+      $post_descripcion = $_POST['post_descripcion'];
 }
 else {
-    $post_title = $validated_data['title'];
-      $post_tag = $validated_data['tags'];
-      $post_content = $validated_data['content'];
+    $post_movilidad = $validated_data['post_movilidad'];
+    $post_descripcion = $validated_data['post_descripcion'];
 if (isset($_SESSION['firstname'])) {
         $post_author = $_SESSION['firstname'];
     }
@@ -69,10 +67,10 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
         $imgext = strtolower(pathinfo($image, PATHINFO_EXTENSION) );
         $picture = rand(1000 , 1000000) .'.'.$imgext;
         if(move_uploaded_file($_FILES['image']['tmp_name'], $folder.$picture)) {
-            $query = "INSERT INTO evidencia (title,author,postdate,image,content,status,tag) VALUES ('$post_title' , '$post_author' , '$post_date' , '$picture' , '$post_content' , '$post_status', '$post_tag') ";
+            $query = "INSERT INTO evidencia (movilidad,descripcion,image,status) VALUES ('$post_movilidad' , '$post_descripcion' , '$picture' , '$post_status') ";
             $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
             if (mysqli_affected_rows($conn) > 0) {
-                echo "<script> alert('Información publicada con éxito. Se publicará después de que el administrador lo apruebe');
+                echo "<script> alert('Evidencia publicada con éxito. Se publicará después de que el administrador lo apruebe');
                 window.location.href='posts.php';</script>";
             }
             else {
@@ -87,8 +85,33 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
 <form role="form" action="" method="POST" enctype="multipart/form-data">
 
     <div class="form-group">
-        <label for="post_title">Título</label>
-        <input type="text" name="title" placeholder = "Ingresa el título " value= "<?php if(isset($_POST['publish'])) { echo $post_title; } ?>"  class="form-control" required>
+        <label for="post_movilidad">Movilidad</label>
+        <?php $post_author = $_SESSION['firstname']; ?>
+        <?php $query = "SELECT id, actividad, descripcion_actividad, ciudad FROM movilidad  WHERE author = '$post_author' ORDER BY id DESC";
+            $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
+            if (mysqli_num_rows($run_query) > 0) {
+        ?>
+        
+       	<select class="form-control" name="post_movilidad" id="post_movilidad">
+       		<?php 
+       		while ($row = mysqli_fetch_array($run_query)) {
+           	    $post_id = $row['id'];
+           	    $post_actividad = $row['actividad'];
+           	    $post_descripción = $row['descripcion_actividad'];
+           	    $post_ciudad = $row['ciudad'];
+           	    echo "<option value='$post_id'> $post_actividad.' '.$post_descripción.' - '.$post_ciudad </option>";
+           	
+       		   }
+            }
+            
+            else {
+                echo "<script>alert('No hay movilidades aún, crea una movilidad primero');
+                window.location.href= 'publishmovilidades.php';</script>";
+            }
+           	    ?>
+           	    
+			
+		</select>
     </div>
 
     
@@ -97,14 +120,10 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
         <input type="file" name="image" >
     </div>
     <div class="form-group">
-        <label for="post_tag">Tags</label>
-        <input type="text" name="tags" placeholder = "Ingresa al menos un tag, separado por Coma (,)" value= "<?php if(isset($_POST['publish'])) { echo $post_tag; } ?>" class="form-control" >
+        <label for="post_descripcion">Descripción</label>
+        <textarea class="form-control" name="post_descripcion"  id="" cols="30" rows="15" ><?php if(isset($_POST['post_descripcion'])) { echo $post_descripcion; } ?></textarea>
     </div>
-    <div class="form-group">
-        <label for="post_content">Contenido</label>
-        <textarea class="form-control" name="content"  id="" cols="30" rows="15" ><?php if(isset($_POST['publish'])) { echo $post_content; } ?></textarea>
-    </div>
-<button type="submit" name="publish" class="btn btn-primary" value="Publish Post">Compartir</button>
+<button type="submit" name="publish" class="btn btn-primary" value="Subir Evidencia">Compartir</button>
 
 </form>
 
@@ -115,12 +134,14 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
 
         </div>
         
-        </div>
-   <?php 'includes/admin_footer.php';?>
-    
+</div>
+<?php include 'includes/adminfooter.php';
+
+?>
+
     <script src="js/jquery.js"></script>
 
-    
+  
     <script src="js/bootstrap.min.js"></script>
 
 </body>
