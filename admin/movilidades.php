@@ -52,7 +52,7 @@
 
                  <?php
 
-$query = "SELECT * FROM posts ORDER BY id DESC";
+$query = "SELECT * FROM movilidad ORDER BY id DESC";
 $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
@@ -109,7 +109,7 @@ else {
  <?php
     if (isset($_GET['del'])) {
         $post_del = mysqli_real_escape_string($conn, $_GET['del']);
-        $del_query = "DELETE FROM posts WHERE id='$post_del'";
+        $del_query = "DELETE FROM movilidad WHERE id='$post_del'";
         $run_del_query = mysqli_query($conn, $del_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
             echo "<script>alert('Movilidad eliminada con éxito');
@@ -121,7 +121,7 @@ else {
         }
         if (isset($_GET['pub'])) {
         $post_pub = mysqli_real_escape_string($conn,$_GET['pub']);
-        $pub_query = "UPDATE posts SET status='published' WHERE id='$post_pub'";
+        $pub_query = "UPDATE movilidad SET status='published' WHERE id='$post_pub'";
         $run_pub_query = mysqli_query($conn, $pub_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
             echo "<script>alert('publicado satisfactoriamente');
@@ -168,7 +168,7 @@ else if($_SESSION['role'] == 'admin') {
 
                  <?php
 $currentuser = $_SESSION['firstname'];
-$query = "SELECT * FROM posts WHERE author = '$currentuser' ORDER BY id DESC";
+$query = "SELECT * FROM movilidad WHERE author = '$currentuser' ORDER BY id DESC";
 $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
@@ -225,7 +225,7 @@ else {
  <?php
     if (isset($_GET['del'])) {
         $post_del = mysqli_real_escape_string($conn, $_GET['del']);
-        $del_query = "DELETE FROM posts WHERE id='$post_del'";
+        $del_query = "DELETE FROM movilidad WHERE id='$post_del'";
         $run_del_query = mysqli_query($conn, $del_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
             echo "<script>alert('Publicación borrada satisfactoriamente');
@@ -237,7 +237,7 @@ else {
         }
         if (isset($_GET['pub'])) {
         $post_pub = mysqli_real_escape_string($conn,$_GET['pub']);
-        $pub_query = "UPDATE posts SET status='published' WHERE id='$post_pub'";
+        $pub_query = "UPDATE movilidad SET status='published' WHERE id='$post_pub'";
         $run_pub_query = mysqli_query($conn, $pub_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
             echo "<script>alert('publicado satisfactoriamente');
@@ -283,7 +283,7 @@ else {
                  <?php
                  $currentuser = $_SESSION['firstname'];
 
-$query = "SELECT * FROM posts WHERE author = '$currentuser' ORDER BY id DESC";
+$query = "SELECT * FROM movilidad WHERE author = '$currentuser' ORDER BY id DESC";
 $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
@@ -337,7 +337,7 @@ else {
 <?php
     if (isset($_GET['del'])) {
         $post_del = mysqli_real_escape_string($conn , $_GET['del']);
-        $del_query = "DELETE FROM posts WHERE id='$post_del' AND author='$currentuser'";
+        $del_query = "DELETE FROM movilidad WHERE id='$post_del' AND author='$currentuser'";
         $run_del_query = mysqli_query($conn, $del_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
             echo "<script>alert('Movilidad eliminada con éxito');

@@ -34,13 +34,23 @@
                     </li>
 
                    <li>
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="collapse" data-target="#posts"><i class="fa fa-fw fa-file-text"></i> Movilidad <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="posts" class="collapse">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="collapse" data-target="#movilidad"><i class="fa fa-fw fa-file-text"></i> Movilidad <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="movilidad" class="collapse">
                             <li>
                                 <a href="./movilidades.php">Ver todos las movilidades</a>
                             </li>
                             <li>
                                 <a href="./publishmovilidades.php">Agregar una nueva movilidad</a>
+                            </li>
+                        </ul>
+                        <li>
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="collapse" data-target="#posts"><i class="fa fa-fw fa-file-text"></i> Evidencias <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="posts" class="collapse">
+                            <li>
+                                <a href="./posts.php">Ver todas las evidencias</a>
+                            </li>
+                            <li>
+                                <a href="./publishnews.php">Agregar una nueva evidencias</a>
                             </li>
                         </ul>
                         <li>

@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="col-xs-9">
                                     <?php
-$query = "SELECT * FROM posts";
+$query = "SELECT * FROM movilidad";
 $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
 $post_num = mysqli_num_rows($result);
 echo "<div class='text-right huge'>{$post_num}</div>";
