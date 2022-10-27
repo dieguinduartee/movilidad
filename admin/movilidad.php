@@ -28,7 +28,6 @@ while ($row = mysqli_fetch_array($run_query)) {
     $post_fecha_fin = $row['fecha_fin'];
     $post_ciudad = $row['ciudad'];
     $post_dependencia = $row['dependencia'];
-    $post_image = $row['image'];
     $post_status = $row['status'];
     
 
@@ -60,9 +59,6 @@ while ($row = mysqli_fetch_array($run_query)) {
                 <p>Dependencia: <?php echo $post_dependencia;?></p>
 				
                 <hr>
-                <h3>Evidencias:</h3>
-                <img class="img-responsive img-rounded" src="../allpostpics/<?php echo $post_image; ?>" alt="900 * 300">
-                <hr>
 
                 <hr>
                 <?php } }
@@ -78,12 +74,4 @@ while ($row = mysqli_fetch_array($run_query)) {
         </div>
         </div>
 
-   
-	<?php include 'includes/adminfooter.php';?>
-    
-    <script src="js/jquery.js"></script>
-
-    
-    <script src="js/bootstrap.min.js"></script>
-</body>
-</html>
+<?php include 'includes/adminfooter.php';?>

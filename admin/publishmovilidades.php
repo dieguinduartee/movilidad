@@ -55,44 +55,22 @@ else {
     $post_fecha_fin = $_POST['fecha_fin'];
     $post_ciudad = $_POST['ciudad'];
     $post_dependencia = $_POST['dependencia'];
-if (isset($_SESSION['firstname'])) {
-        $post_author = $_SESSION['firstname'];
-    }
+    if (isset($_SESSION['firstname'])) {
+            $post_author = $_SESSION['firstname'];
+        }
     $post_date = date('Y-m-d');
     $post_status = 'draft';
     
-
-    $image = $_FILES['image']['name'];
-    $ext = $_FILES['image']['type'];
-    $validExt = array ("image/gif",  "image/jpeg",  "image/pjpeg", "image/png");
-    if (empty($image)) {
-echo "<script>alert('Adjunta una imagen');</script>";
-    }
-    else if ($_FILES['image']['size'] <= 0 || $_FILES['image']['size'] > 1024000 )
-    {
-echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
-    }
-    else if (!in_array($ext, $validExt)){
-        echo "<script>alert('No es una imagen válida.');</script>";
-
-    }
+    $query = "INSERT INTO movilidad (author,actividad,descripcion_actividad, lugar, tipo_movilidad, instituto,fecha_inicio, fecha_fin, ciudad, dependencia,postdate, status) VALUES ('$post_author','$post_actividad' , '$post_descripcion' , '$post_lugar', '$post_tipo_movilidad', '$post_instituto','$post_fecha_inicio', '$post_fecha_fin', '$post_ciudad', '$post_dependencia',  '$post_date', '$post_status') ";
+    $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
+    if (mysqli_affected_rows($conn) > 0) {
+            echo "<script> alert('Movilidad publicada con éxito. Se publicará después de que el administrador lo apruebe');
+            window.location.href='movilidades.php';</script>";
+      }
     else {
-        $folder  = '../allpostpics/';
-        $imgext = strtolower(pathinfo($image, PATHINFO_EXTENSION) );
-        $picture = rand(1000 , 1000000) .'.'.$imgext;
-        if(move_uploaded_file($_FILES['image']['tmp_name'], $folder.$picture)) {
-            $query = "INSERT INTO movilidad (author,actividad,descripcion_actividad, lugar, tipo_movilidad, instituto,fecha_inicio, fecha_fin, ciudad, dependencia,postdate,image,status) VALUES ('$post_author','$post_actividad' , '$post_descripcion' , '$post_lugar', '$post_tipo_movilidad', '$post_instituto','$post_fecha_inicio', '$post_fecha_fin', '$post_ciudad', '$post_dependencia',  '$post_date' , '$picture'  , '$post_status') ";
-            $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
-            if (mysqli_affected_rows($conn) > 0) {
-                echo "<script> alert('Movilidad publicada con éxito. Se publicará después de que el administrador lo apruebe');
-                window.location.href='movilidades.php';</script>";
-            }
-            else {
-                "<script> alert('Error al agregar movilidad ... intente de nuevo');</script>";
-            }
-        }
-    }
-}
+       "<script> alert('Error al agregar movilidad ... intente de nuevo');</script>";
+     }
+     }
 }
 ?>
 
@@ -149,11 +127,7 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
         <label for="post_dependencia">Dependencia</label>
         <input type="text" name="dependencia" placeholder = "Ingresa la dependencia " value= "<?php if(isset($_POST['dependencia'])) { echo $post_dependencia; } ?>"  class="form-control" required>
     </div>
-    
-    <div class="form-group">
-        <label for="post_image">Evidencia </label> <font color='brown' > &nbsp;&nbsp;(Tamaño máximo permitido 1024 Kb) </font> 
-        <input type="file" name="image" >
-    </div>
+
 
 <button type="submit" name="publish" class="btn btn-primary" value="Publish Post">Agregar Movilidad</button>
 
