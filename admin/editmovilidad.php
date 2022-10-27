@@ -5,14 +5,14 @@ if (isset($_GET['id'])) {
 	$id = mysqli_real_escape_string($conn, $_GET['id']);  
 }
 else {
-	header('location:posts.php');
+	header('location:movilidades.php');
 }
 $currentuser = $_SESSION['firstname'];
 if ($_SESSION['role'] == 'superadmin') {
-$query = "SELECT * FROM posts WHERE id='$id'";
+$query = "SELECT * FROM movilidad WHERE id='$id'";
 }
 else {
-    $query = "SELECT * FROM posts WHERE id='$id' AND author = '$currentuser'" ;
+    $query = "SELECT * FROM movilidad WHERE id='$id' AND author = '$currentuser'" ;
 }
 $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0 ) {
@@ -74,12 +74,12 @@ else {
     else if ($_FILES['image']['size'] <= 0 || $_FILES['image']['size'] > 1024000 )
     {
 echo "<script>alert('Tamaño de imagen incorrecto');
-window.location.href = 'editposts.php?id=$id';</script>";
+window.location.href = 'editmovilidad.php?id=$id';</script>";
     
     }
     else if (!in_array($ext, $validExt)){
         echo "<script>alert('Imagen no válida');
-        window.location.href = 'editposts.php?id=$id';</script>";
+        window.location.href = 'editmovilidad.php?id=$id';</script>";
     exit();
     }
     else {
@@ -89,7 +89,7 @@ window.location.href = 'editposts.php?id=$id';</script>";
         move_uploaded_file($_FILES['image']['tmp_name'], $folder.$picture);
     }
   
-        $queryupdate = "UPDATE posts SET actividad = '$post_actividad' , descripcion_actividad = '$post_descripcion' , lugar='$post_lugar' , tipo_movilidad = '$post_tipo_movilidad', instituto = '$post_instituto', fecha_inicio = '$post_fecha_inicio', fecha_fin = '$post_fecha_fin', ciudad = '$post_ciudad', dependencia = '$post_dependencia', 	status = '$post_status' , image = '$picture' , postdate = '$post_date' WHERE id= '$post_id' " ;
+        $queryupdate = "UPDATE movilidad SET actividad = '$post_actividad' , descripcion_actividad = '$post_descripcion' , lugar='$post_lugar' , tipo_movilidad = '$post_tipo_movilidad', instituto = '$post_instituto', fecha_inicio = '$post_fecha_inicio', fecha_fin = '$post_fecha_fin', ciudad = '$post_ciudad', dependencia = '$post_dependencia', 	status = '$post_status' , image = '$picture' , postdate = '$post_date' WHERE id= '$post_id' " ;
         $result = mysqli_query($conn , $queryupdate) or die(mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
         	echo "<script>alert('Publicación actualizada satisfactoriamente');
@@ -183,6 +183,8 @@ window.location.href = 'editposts.php?id=$id';</script>";
 </div>
 </div>
 </div>
+
+<?php include 'includes/adminfooter.php';?>
 
 <script src="js/jquery.js"></script>
 

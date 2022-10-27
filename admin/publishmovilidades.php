@@ -81,7 +81,7 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
         $imgext = strtolower(pathinfo($image, PATHINFO_EXTENSION) );
         $picture = rand(1000 , 1000000) .'.'.$imgext;
         if(move_uploaded_file($_FILES['image']['tmp_name'], $folder.$picture)) {
-            $query = "INSERT INTO posts (author,actividad,descripcion_actividad, lugar, tipo_movilidad, instituto,fecha_inicio, fecha_fin, ciudad, dependencia,postdate,image,status) VALUES ('$post_author','$post_actividad' , '$post_descripcion' , '$post_lugar', '$post_tipo_movilidad', '$post_instituto','$post_fecha_inicio', '$post_fecha_fin', '$post_ciudad', '$post_dependencia',  '$post_date' , '$picture'  , '$post_status') ";
+            $query = "INSERT INTO movilidad (author,actividad,descripcion_actividad, lugar, tipo_movilidad, instituto,fecha_inicio, fecha_fin, ciudad, dependencia,postdate,image,status) VALUES ('$post_author','$post_actividad' , '$post_descripcion' , '$post_lugar', '$post_tipo_movilidad', '$post_instituto','$post_fecha_inicio', '$post_fecha_fin', '$post_ciudad', '$post_dependencia',  '$post_date' , '$picture'  , '$post_status') ";
             $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
             if (mysqli_affected_rows($conn) > 0) {
                 echo "<script> alert('Movilidad publicada con éxito. Se publicará después de que el administrador lo apruebe');
