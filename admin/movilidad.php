@@ -75,3 +75,11 @@ while ($row = mysqli_fetch_array($run_query)) {
         </div>
 
 <?php include 'includes/adminfooter.php';?>
+    <script src="js/jquery.js"></script>
+
+  
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

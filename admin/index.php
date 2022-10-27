@@ -90,7 +90,10 @@ echo "<div class='text-right huge'>{$user_num}</div>";
         
 </div>
         
-   <?php 'includes/adminfooter.php';?>
+   <?php include 'includes/adminheader.php';
+
+?>
+
     <script src="js/jquery.js"></script>
 
   

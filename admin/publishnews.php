@@ -135,3 +135,15 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
         </div>
         
 </div>
+<?php include 'includes/adminfooter.php';
+
+?>
+
+    <script src="js/jquery.js"></script>
+
+  
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

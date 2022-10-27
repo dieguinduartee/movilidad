@@ -77,7 +77,7 @@
 	        <div class="col-md-8">
 
 <?php
-$query = "SELECT * FROM posts WHERE status='published' ORDER BY updated_on DESC";
+$query = "SELECT * FROM movilidad WHERE status='published' ORDER BY updated_on DESC";
 $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_assoc($run_query)) {
@@ -92,7 +92,7 @@ while ($row = mysqli_fetch_assoc($run_query)) {
     $post_fecha_fin = $row['fecha_fin'];
     $post_ciudad = $row['ciudad'];
     $post_dependencia = $row['dependencia'];
-    $post_image = $row['image'];
+    //$post_image = $row['image'];
   $post_status = $row['status'];
   if ($post_status !== 'published') {
     echo "NO POST PLS";
@@ -104,7 +104,7 @@ while ($row = mysqli_fetch_assoc($run_query)) {
             <p><span class="glyphicon glyphicon-time"></span>Fecha de inicio de movilidad <?php echo $post_fecha_inicio; ?></p>
             <hr><a href="publicposts.php?post=<?php echo $post_id; ?>">
             <p><?php echo $post_descripcion; ?></p>
-            <img class="img-responsive img-rounded" src="allpostpics/<?php echo $post_image; ?>" alt="900 * 300"></a>
+            <!-- <img class="img-responsive img-rounded" src="allpostpics/<?php echo $post_image; ?>" alt="900 * 300"></a> -->
             <hr>
             <a href="publicposts.php?post=<?php echo $post_id; ?>"><button type="button" class="btn btn-primary">Ver más<span class="glyphicon glyphicon-chevron-right"></span></button></a>
             <hr>

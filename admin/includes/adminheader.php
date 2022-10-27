@@ -29,6 +29,7 @@ else {
     <script src="js/tinymce/script.js"></script>
     
     <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="css/cms-home.css" rel="stylesheet">
 
 </head>
 

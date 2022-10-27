@@ -141,4 +141,15 @@ else {
         </div>
         </div>
         
-   <?php 'includes/admin_footer.php';?>
+   <?php include 'includes/adminheader.php';
+
+?>
+
+       <script src="js/jquery.js"></script>
+
+  
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
