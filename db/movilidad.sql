@@ -32,8 +32,7 @@ CREATE TABLE evidencia(
   image text COLLATE utf8mb4_spanish2_ci NOT NULL,
   descripcion text COLLATE utf8mb4_spanish2_ci NOT NULL,
   updated_on timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  status varchar(225) COLLATE utf8mb4_spanish2_ci NOT NULL,
-  CONSTRAINT evidencia_movilidad_fk FOREIGN KEY (movilidad) REFERENCES movilidad(id)
+  status varchar(225) COLLATE utf8mb4_spanish2_ci NOT NULL
 );
 
 CREATE TABLE users (
@@ -58,31 +57,15 @@ INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `passwo
 ALTER TABLE `movilidad`
   ADD PRIMARY KEY (`id`);
 
---
--- Indices de la tabla `users`
---
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `posts`
---
 ALTER TABLE `movilidad`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
---
--- AUTO_INCREMENT de la tabla `users`
---
 ALTER TABLE `users`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 ALTER TABLE evidencia
   ADD CONSTRAINT evidencia_movilidad_fk FOREIGN KEY (movilidad) REFERENCES movilidad(id)
