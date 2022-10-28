@@ -25,7 +25,7 @@ else {
     <link rel="icon" type="image/png" href="../image/favicon.ico">
     
     <link href="css/bootstrap.min.css" rel="stylesheet">
- <script src="js/tinymce/tinymce.min.js"></script>
+ 	<script src="js/tinymce/tinymce.min.js"></script>
     <script src="js/tinymce/script.js"></script>
     
     <link href="css/sb-admin.css" rel="stylesheet">
