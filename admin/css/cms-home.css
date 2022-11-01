@@ -6,7 +6,7 @@
 
 body {
     /*padding-top: 1rem; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-	color:white;
+	/*color:white; */
 }
 
 
@@ -18,11 +18,17 @@ body {
 .enlace{
 	text-decoration: none;
 	text-transform: uppercase;
+	color: white;
 }
 
 .enlace:hover{
 	text-decoration: none;
 	text-transform: uppercase;
+	color: white;
+}
+
+.colores{
+	color: black;
 }
 
 footer {

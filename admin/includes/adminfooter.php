@@ -1,7 +1,8 @@
-<footer class="foo w-100 ">
-	<div class="row">
-    	<div class="col-lg-12 ">
-        	<p style="text-align:center; font-size:17px;"><b >Ingeniería de Software 2022</b></p>
-       	</div>
+<footer class="bg-light text-center text-lg-start">
+	<!-- Copyright -->
+	<div class="text-center p-3">
+		© 2022 Copyright: <a class="text-dark enlace" href="#">Ingeniería de Software
+			UFPS</a>
 	</div>
+	<!-- Copyright -->
 </footer>

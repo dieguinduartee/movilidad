@@ -307,7 +307,8 @@ else {
 </div>
 </div>
 </div>
-<
+<?php include ('includes/adminfooter.php');
+    ?>
  <script src="js/jquery.js"></script>
 
     

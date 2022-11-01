@@ -74,7 +74,7 @@ else {
 }
 ?>
 
-<form role="form" action="" method="POST" enctype="multipart/form-data">
+<form role="form" action="" method="POST" enctype="multipart/form-data" class="colores">
 		
 	<div class="form-group">
 		<label for='lugar'>Lugar</label>
@@ -141,7 +141,7 @@ else {
         </div>
         </div>
         
-   <?php include 'includes/adminheader.php';
+   <?php include 'includes/adminfooter.php';
 
 ?>
 

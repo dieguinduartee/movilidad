@@ -128,9 +128,10 @@ while ($row = mysqli_fetch_assoc($run_query)) {
         </div>
 
         
-        <?php include 'includes/footer.php';?>
+        
         
     </div>
+   <?php include 'includes/footer.php';?>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
 

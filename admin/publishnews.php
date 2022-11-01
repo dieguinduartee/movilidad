@@ -11,7 +11,7 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">
+                        <h1 class="page-header colores">
                             Publicar Evidencia
                         </h1>
 <?php
@@ -82,7 +82,7 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
 }
 ?>
 
-<form role="form" action="" method="POST" enctype="multipart/form-data">
+<form role="form" action="" method="POST" enctype="multipart/form-data" class="colores">
 
     <div class="form-group">
         <label for="post_movilidad">Movilidad</label>
