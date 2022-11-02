@@ -127,7 +127,7 @@ window.location.href = 'editposts.php?id=$id';</script>";
            	    $post_actividad = $row['actividad'];
            	    $post_descripción_mov = $row['descripcion_actividad'];
            	    $post_ciudad = $row['ciudad'];
-           	    echo "<option value='$post_id' $post_id == $post_movilidad_ev ? print'selected'> $post_actividad.' '.$post_descripción_mov.' - '.$post_ciudad </option>";
+           	    echo "<option value='$post_id' $post_id == $post_movilidad_ev ? print'selected'> $post_actividad - $post_ciudad </option>";
            	
        		   }
             }

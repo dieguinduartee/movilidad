@@ -99,7 +99,7 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
            	    $post_actividad = $row['actividad'];
            	    $post_descripción = $row['descripcion_actividad'];
            	    $post_ciudad = $row['ciudad'];
-           	    echo "<option value='$post_id'> $post_actividad.' '.$post_descripción.' - '.$post_ciudad </option>";
+           	    echo "<option value='$post_id'> $post_actividad - $post_ciudad </option>";
            	
        		   }
             }

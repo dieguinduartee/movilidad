@@ -18,11 +18,10 @@ CREATE TABLE movilidad (
   ciudad varchar(255) COLLATE utf8mb4_spanish2_ci DEFAULT NULL,
   author varchar(225) COLLATE utf8mb4_spanish2_ci NOT NULL,
   postdate date NOT NULL,
-  image text COLLATE utf8mb4_spanish2_ci NOT NULL,
   updated_on timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   status varchar(225) COLLATE utf8mb4_spanish2_ci NOT NULL,
   lugar varchar(255) COLLATE utf8mb4_spanish2_ci NOT NULL DEFAULT 'nacional',
-  dependencia varchar(255) COLLATE utf8mb4_spanish2_ci DEFAULT NULL
+  modalidad varchar(255) COLLATE utf8mb4_spanish2_ci NOT NULL DEFAULT 'presencial'
 );
 
 
@@ -69,3 +68,4 @@ ALTER TABLE `users`
 
 ALTER TABLE evidencia
   ADD CONSTRAINT evidencia_movilidad_fk FOREIGN KEY (movilidad) REFERENCES movilidad(id)
+

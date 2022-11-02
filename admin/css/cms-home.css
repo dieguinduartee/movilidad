@@ -11,24 +11,24 @@ body {
 }
 
 a{
-    color: white;
+    color: black;
 }
 
 a:hover{
-    color: white;
+    color: black;
 }
 
 
 .enlace {
 	text-decoration: none;
 	text-transform: uppercase;
-	color: white;
+	color: black;
 }
 
 .enlace:hover {
 	text-decoration: none;
 	text-transform: uppercase;
-	color: white;
+	color: black;
 }
 
 

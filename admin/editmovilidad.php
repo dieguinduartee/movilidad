@@ -27,7 +27,7 @@ while ($row = mysqli_fetch_array($run_query)) {
     $post_fecha_inicio = $row['fecha_inicio'];
     $post_fecha_fin = $row['fecha_fin'];
     $post_ciudad = $row['ciudad'];
-    $post_dependencia = $row['dependencia'];
+    $post_modalidad = $row['modalidad'];
     $post_status = $row['status'];
 
 if (isset($_POST['update'])) {
@@ -54,7 +54,6 @@ if($validated_data === false) {
 else {
     $post_actividad = $validated_data['actividad'];
       $post_descripcion = $validated_data['descripcion'];
-      $post_dependencia = $validated_data['dependencia'];
     $post_date = date('Y-m-d');
     if ($_SESSION['role'] == 'user') {
     	$post_status = 'draft';
@@ -63,7 +62,7 @@ else {
 }
 
 
-        $queryupdate = "UPDATE movilidad SET actividad = '$post_actividad' , descripcion_actividad = '$post_descripcion' , lugar='$post_lugar' , tipo_movilidad = '$post_tipo_movilidad', instituto = '$post_instituto', fecha_inicio = '$post_fecha_inicio', fecha_fin = '$post_fecha_fin', ciudad = '$post_ciudad', dependencia = '$post_dependencia', 	status = '$post_status' , postdate = '$post_date' WHERE id= '$post_id' " ;
+        $queryupdate = "UPDATE movilidad SET actividad = '$post_actividad' , descripcion_actividad = '$post_descripcion' , lugar='$post_lugar' , tipo_movilidad = '$post_tipo_movilidad', instituto = '$post_instituto', fecha_inicio = '$post_fecha_inicio', fecha_fin = '$post_fecha_fin', ciudad = '$post_ciudad', modalidad = '$post_modalidad', 	status = '$post_status' , postdate = '$post_date' WHERE id= '$post_id' " ;
         $result = mysqli_query($conn , $queryupdate) or die(mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
         	echo "<script>alert('Publicación actualizada satisfactoriamente');
@@ -142,7 +141,10 @@ else {
     
     <div class="form-group">
         <label for="post_dependencia">Dependencia</label>
-        <input type="text" name="dependencia" placeholder = "Ingresa la dependencia " value= "<?php echo $post_dependencia; ?>"  class="form-control" required>
+        <select class="form-control" name="tipo_movilidad" id="tipo_movilidad">
+			<option value='presencial' <?php $post_modalidad == "presencial" ? print"selected": print"";?>>Presencial</option>
+			<option value='virtual' <?php $post_modalidad == "virtual" ? print"selected": print"";?>>Virtual</option>
+		</select>
     </div>
 	
 	<button type="submit" name="update" class="btn btn-primary" value="Update Post">Modificar movilidad</button>

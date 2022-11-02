@@ -39,8 +39,8 @@
                         <th>Instituto</th>
                         <th>Fecha Inicio</th>
                         <th>Fecha Fin</th>
-                        <th>Ciudad</th>
-                        <th>Dependencia</th>
+                        <th>Pais/Ciudad</th>
+                        <th>Modalidad</th>
                         <th>Ver</th>
                         <th>Editar</th>
                         <th>Borrar</th>
@@ -65,7 +65,7 @@ while ($row = mysqli_fetch_array($run_query)) {
     $post_fecha_inicio = $row['fecha_inicio'];
     $post_fecha_fin = $row['fecha_fin'];
     $post_ciudad = $row['ciudad'];
-    $post_dependencia = $row['dependencia'];
+    $post_modalidad = $row['modalidad'];
     $post_status = $row['status'];
 
     echo "<tr>";
@@ -79,7 +79,7 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td>$post_fecha_inicio</td>";
     echo "<td>$post_fecha_fin</td>";
     echo "<td>$post_ciudad</td>";
-    echo "<td>$post_dependencia</td>";
+    echo "<td>$post_modalidad</td>";
     echo "<td><a href='movilidad.php?post=$post_id' style='color:green'>Ver</a></td>";
     echo "<td><a href='editmovilidad.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
     echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta movilidad?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>Eliminar</a></td>";
@@ -154,7 +154,7 @@ else if($_SESSION['role'] == 'admin') {
                         <th>Fecha Inicio</th>
                         <th>Fecha Fin</th>
                         <th>Ciudad</th>
-                        <th>Dependencia</th>
+                        <th>Modalidad</th>
                         <th>Ver</th>
                         <th>Editar</th>
                         <th>Borrar</th>
@@ -178,7 +178,7 @@ while ($row = mysqli_fetch_array($run_query)) {
     $post_fecha_inicio = $row['fecha_inicio'];
     $post_fecha_fin = $row['fecha_fin'];
     $post_ciudad = $row['ciudad'];
-    $post_dependencia = $row['dependencia'];
+    $post_modalidad = $row['modalidad'];
     $post_status = $row['status'];
 
     echo "<tr>";
@@ -193,7 +193,7 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td>$post_fecha_inicio</td>";
     echo "<td>$post_fecha_fin</td>";
     echo "<td>$post_ciudad</td>";
-    echo "<td>$post_dependencia</td>";
+    echo "<td>$post_modalidad</td>";
     echo "<td><a href='movilidad.php?post=$post_id' style='color:green'>Ver</a></td>";
     echo "<td><a href='editmovilidad.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
     echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta movilidad?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>borrar</a></td>";
@@ -265,7 +265,7 @@ else {
                         <th>Fecha Inicio</th>
                         <th>Fecha Fin</th>
                         <th>Ciudad</th>
-                        <th>Dependencia</th>
+                        <th>Modalidad</th>
                         <th>Ver</th>
                         <th>Editar</th>
                         <th>Borrar</th>
@@ -290,7 +290,7 @@ while ($row = mysqli_fetch_array($run_query)) {
     $post_fecha_inicio = $row['fecha_inicio'];
     $post_fecha_fin = $row['fecha_fin'];
     $post_ciudad = $row['ciudad'];
-    $post_dependencia = $row['dependencia'];
+    $post_modalidad = $row['dependencia'];
     $post_status = $row['status'];
     
 
@@ -305,7 +305,7 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td>$post_fecha_inicio</td>";
     echo "<td>$post_fecha_fin</td>";
     echo "<td>$post_ciudad</td>";
-    echo "<td>$post_dependencia</td>";
+    echo "<td>$post_modalidad</td>";
     echo "<td><a href='movilidad.php?post=$post_id' style='color:green'>Ver</a></td>";
     echo "<td><a href='editmovilidad.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
     echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta publicación?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>delete</a></td>";

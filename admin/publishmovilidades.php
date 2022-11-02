@@ -43,7 +43,7 @@ if($validated_data === false) {
       $post_fecha_inicio = $_POST['fecha_inicio'];
       $post_fecha_fin = $_POST['fecha_fin'];
       $post_ciudad = $_POST['ciudad'];
-      $post_dependencia = $_POST['dependencia'];
+      $post_modalidad = $_POST['modalidad'];
 }
 else {
     $post_actividad = $_POST['actividad'];
@@ -54,14 +54,14 @@ else {
     $post_fecha_inicio = $_POST['fecha_inicio'];
     $post_fecha_fin = $_POST['fecha_fin'];
     $post_ciudad = $_POST['ciudad'];
-    $post_dependencia = $_POST['dependencia'];
+    $post_modalidad = $_POST['modalidad'];
     if (isset($_SESSION['firstname'])) {
             $post_author = $_SESSION['firstname'];
         }
     $post_date = date('Y-m-d');
     $post_status = 'draft';
     
-    $query = "INSERT INTO movilidad (author,actividad,descripcion_actividad, lugar, tipo_movilidad, instituto,fecha_inicio, fecha_fin, ciudad, dependencia,postdate, status) VALUES ('$post_author','$post_actividad' , '$post_descripcion' , '$post_lugar', '$post_tipo_movilidad', '$post_instituto','$post_fecha_inicio', '$post_fecha_fin', '$post_ciudad', '$post_dependencia',  '$post_date', '$post_status') ";
+    $query = "INSERT INTO movilidad (author,actividad,descripcion_actividad, lugar, tipo_movilidad, instituto,fecha_inicio, fecha_fin, ciudad, modalidad,postdate, status) VALUES ('$post_author','$post_actividad' , '$post_descripcion' , '$post_lugar', '$post_tipo_movilidad', '$post_instituto','$post_fecha_inicio', '$post_fecha_fin', '$post_ciudad', '$post_modalidad',  '$post_date', '$post_status') ";
     $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
     if (mysqli_affected_rows($conn) > 0) {
             echo "<script> alert('Movilidad publicada con éxito. Se publicará después de que el administrador lo apruebe');
@@ -124,8 +124,11 @@ else {
     </div>
     
     <div class="form-group">
-        <label for="post_dependencia">Dependencia</label>
-        <input type="text" name="dependencia" placeholder = "Ingresa la dependencia " value= "<?php if(isset($_POST['dependencia'])) { echo $post_dependencia; } ?>"  class="form-control" required>
+        <label for="modalidad">Modalidad</label>
+        <select class="form-control" name="modalidad" id="movilidad">
+			<option value='presencial'>Presencial</option>
+			<option value='virtual'>Virtual</option>
+		</select>
     </div>
 
 

@@ -27,7 +27,7 @@ while ($row = mysqli_fetch_array($run_query)) {
     $post_fecha_inicio = $row['fecha_inicio'];
     $post_fecha_fin = $row['fecha_fin'];
     $post_ciudad = $row['ciudad'];
-    $post_dependencia = $row['dependencia'];
+    $post_modalidad = $row['modalidad'];
     $post_status = $row['status'];
     
 
@@ -49,8 +49,9 @@ while ($row = mysqli_fetch_array($run_query)) {
                 
                 <hr>
 	       		<p><h2><a href="#"><?php echo $post_actividad; ?></a></h2></p>
+	       		<p><h2><span><?php echo $post_author; ?></span></h2>
                 <p><h3>Movilidad <a href="#"><?php echo $post_descripcion; ?></a></h3></p>
-                <p>Modalidad: <?php echo $post_tipo_movilidad;?> -  <?php $post_author;?></p>
+                <p>Modalidad: <?php echo $post_tipo_movilidad;?> -  <?php $post_modalidad;?></p>
                 <p>Lugar: <?php echo $post_lugar;?></p>
                 <p><span class="glyphicon glyphicon-time"></span>Fecha de inicio de movilidad <?php echo $post_fecha_inicio; ?></p>
                 <p><span class="glyphicon glyphicon-time"></span>Fecha de fin de movilidad <?php echo $post_fecha_fin; ?></p>
