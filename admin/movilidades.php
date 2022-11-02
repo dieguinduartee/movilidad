@@ -13,9 +13,9 @@
                         <h1 class="page-header">
                         <div class="col-xs-4">
             <a href="publishnews.php" class="btn btn-primary">AGREGAR</a>
-            </div>
-                           TODAS LAS EXPERIENCIAS
-                        </h1>
+            </div><br/>
+                           <h1 class="titulo">TODAS LAS MOVILIDADES</h1>
+                        
                          
 
 <?php if($_SESSION['role'] == 'superadmin')  

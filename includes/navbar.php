@@ -1,4 +1,4 @@
- <nav class="navbar navbar-inverse navbar-fixed-top barra" role="navigation"">
+ <nav class="navbar navbar-light navbar-fixed-top barra" role="navigation">
 			<div class="container">
 
 
@@ -9,14 +9,14 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.php">Movilidad</a>
+					<a class="navbar-brand" href="index.php" class="texto" id="inicio">Movilidad</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                    	<li><a href="about.php">Quienes Somos</a></li>
-						 <li><a href="publicposts.php">Experiencias de movilidad</a></li>
-						 <li><a href="register.php">Registrarse</a></li>
+                    	<li><a href="about.php" class="texto">Quienes Somos</a></li>
+						 <li><a href="publicposts.php" class="texto">Experiencias de movilidad</a></li>
+						 <li><a href="register.php" class="texto">Registrarse</a></li>
                         
 
 

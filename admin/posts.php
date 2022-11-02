@@ -14,7 +14,7 @@
                         <div class="col-xs-4">
             <a href="publishnews.php" class="btn btn-primary">AGREGAR</a>
             </div>
-                           TODAS LAS EXPERIENCIAS
+                           TODAS LAS EVIDENCIAS
                         </h1>
                          
 

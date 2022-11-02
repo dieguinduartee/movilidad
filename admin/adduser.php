@@ -88,32 +88,32 @@ else {
 	</div>
 
 	<div class="form-group">
-<label>Rol</label>
-<select class="form-control" name="lastname" id="">
+		<label>Rol</label>
+		<select class="form-control" name="lastname" id="">
 		    <label for="user_role">Rol a</label>
-		   <?php
-echo "<option value='Docente'>Docente</option>";
-echo "<option value='Estudiante'>Estudiante</option>";
-?>
-</select>
-
+		   	<?php
+				echo "<option value='Docente'>Docente</option>";
+				echo "<option value='Estudiante'>Estudiante</option>";
+			?>
+		</select>
+	</div>
 <br>
 
-<label for="user_role">Admin/Usuario</label>
-
-	<div class="input-group">
-		<select class="form-control" name="role" id="">
-		    <label for="user_role">Rol</label>
-		   <?php
-echo "<option value='user'>Usuario</option>";
-echo "<option value='admin'>Administrador</option>";
-
-?>
-
-	    </select>
-
+	<div class="form-group">
+		<label for="user_role">Admin/Usuario</label>
+		<div class="input-group">
+			<select class="form-control" name="role" id="">
+				<label for="user_role">Rol</label>
+				<?php
+					echo "<option value='user'>Usuario</option>";
+					echo "<option value='admin'>Administrador</option>";
+				?>
+			</select>
+		</div>
 	</div>
+
 	<br>
+
 	<div class="form-group">
 		<label for="user_tag">Correo</label>
 		<input type="email" name="email" class="form-control" required>
@@ -133,9 +133,10 @@ echo "<option value='admin'>Administrador</option>";
 </form>
 </div>
 </div>
-<?php
-include('includes/adminfooter.php');
-?>
+</div>
+</div>
+
+	<?php include 'includes/adminfooter.php';?>
 
     <script src="js/jquery.js"></script>
 

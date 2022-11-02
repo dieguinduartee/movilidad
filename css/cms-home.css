@@ -5,23 +5,49 @@
  */
 
 body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    font-family: 'Trebuchet MS', 'Helvetica', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif';
+
 }
 
-.barra{
-    background-color: red;
+.barra {
+    background-color: rgb(188, 0, 23);
     color: white;
 }
 
-.titulo{
-    text-align: center;
+.texto{
+    color: white;
 }
 
-.registro{
+.titulo {
+    text-align: center;
+    font-size: large;
+    padding: 1rem;
+}
+
+.registro {
     height: 100%;
     width: auto;
 }
 
+
+
+#inicio{
+    color: white;
+}
+
+#inicio:hover{
+    color: white;
+}
+
+
 footer {
-    margin: 50px 0;
+	padding: 1rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(188, 0, 23);
+    color: white;
+    text-align: center;
 }

@@ -81,18 +81,13 @@ echo "<div class='text-right huge'>{$user_num}</div>";
                             </a>
                         </div>
                     </div>
-
-
-                    <div class="text-right">MOVILIDAD</div>
             </div>
             
         </div>
         
 </div>
         
-   <?php include 'includes/adminfooter.php';
-
-?>
+   <?php include 'includes/adminfooter.php';?>
 
     <script src="js/jquery.js"></script>
 

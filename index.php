@@ -7,7 +7,7 @@
 <br>
 
 <br>
-<h1 class="titulo">MOVILIDAD</h1>
+<h1 class="titulo p-1 h1">MOVILIDAD</h1>
 
 <div class="container">
   <div class="row">
@@ -113,7 +113,7 @@ while ($row = mysqli_fetch_assoc($run_query)) {
 
             <hr>
             <ul class="pager">
-          <li class="previous"><a href="#"><span class="glyphicon glyphicon-arrow-left"></span> Anteriores</a></li>
+          <li class="previous"><a href="#" ><span class="glyphicon glyphicon-arrow-left"></span> Anteriores</a></li>
           <li class="next"><a href="#">Más nuevos <span class="glyphicon glyphicon-arrow-right"></span></a></li>
         </ul>
           </div>
