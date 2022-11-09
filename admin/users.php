@@ -37,10 +37,8 @@ else if ($currentrole == 'superadmin') {
             <th>Id</th>
             <th>Usuario</th>
             <th>Nombre</th>
-            <th>Docente/Estudiante</th>
             <th>Correo</th>
             <th>Rol</th>
-            <th>Cambiar Rol</th>
             <th>Borrar</th>
         </tr>
     </thead>
@@ -63,11 +61,9 @@ else if ($currentrole == 'superadmin') {
                 echo "<td>$user_id</td>";
                 echo "<td>$username</td>";
                 echo "<td>$user_firstname</td>";
-                echo "<td>$user_lastname</td>";
                 echo "<td>$user_email</td>";
-                echo "<td>$user_role</td>";
-            echo "<td><a href='users.php?change_to_admin=$user_id''>Volver Administrador</a></td>";
-                echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar a este usuario?')\" href='users.php?delete=$user_id'><i class='fa fa-times fa-lg'></i>Borrar</a></td>";
+                echo "<td>$user_lastname</td>";
+                echo "<td><a class='btn btn-danger btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar a este usuario?')\" href='users.php?delete=$user_id'><i class='fa fa-times fa-lg'></i>Borrar</a></td>";
                 echo "</tr>";
              }
         ?>

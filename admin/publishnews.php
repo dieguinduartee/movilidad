@@ -87,7 +87,12 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
     <div class="form-group">
         <label for="post_movilidad">Movilidad</label>
         <?php $post_author = $_SESSION['firstname']; ?>
-        <?php $query = "SELECT id, actividad, descripcion_actividad, ciudad FROM movilidad  WHERE author = '$post_author' ORDER BY id DESC";
+        <?php 
+        if($_SESSION['role'] == 'superadmin'){
+        $query = "SELECT id,author, actividad, descripcion_actividad, ciudad FROM movilidad ORDER BY id DESC";
+        }else{
+            $query = "SELECT id, author, actividad, descripcion_actividad, ciudad FROM movilidad  WHERE author = '$post_author' ORDER BY id DESC";
+        }
             $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
             if (mysqli_num_rows($run_query) > 0) {
         ?>
@@ -99,12 +104,14 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
            	    $post_actividad = $row['actividad'];
            	    $post_descripción = $row['descripcion_actividad'];
            	    $post_ciudad = $row['ciudad'];
-           	    echo "<option value='$post_id'> $post_actividad - $post_ciudad </option>";
-           	
-       		   }
-            }
-            
-            else {
+           	    $post_author = $row['author'];
+           	    if($_SESSION['role'] == 'superadmin') {
+           	        echo "<option value='$post_id'>$post_author - $post_actividad - $post_ciudad </option>";
+           	    }else{
+           	        echo "<option value='$post_id'>$post_actividad - $post_ciudad </option>";
+           	    }
+       		}
+            }else {
                 echo "<script>alert('No hay movilidades aún, crea una movilidad primero');
                 window.location.href= 'publishmovilidades.php';</script>";
             }

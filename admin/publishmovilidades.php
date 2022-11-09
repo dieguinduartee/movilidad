@@ -79,9 +79,9 @@ else {
 	<div class="form-group">
 		<label for='lugar'>Lugar</label>
 		<select class="form-control" name="lugar" id="lugar">
-			<option value='local'>Local</option>
-			<option value='nacional'>Nacional</option>
-			<option value='internacional'>Internacional</option>
+			<option value='Local'>Local</option>
+			<option value='Nacional'>Nacional</option>
+			<option value='Internacional'>Internacional</option>
 		</select>
 	</div>
 	
@@ -126,8 +126,8 @@ else {
     <div class="form-group">
         <label for="modalidad">Modalidad</label>
         <select class="form-control" name="modalidad" id="movilidad">
-			<option value='presencial'>Presencial</option>
-			<option value='virtual'>Virtual</option>
+			<option value='Presencial'>Presencial</option>
+			<option value='Virtual'>Virtual</option>
 		</select>
     </div>
 

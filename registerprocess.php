@@ -29,7 +29,7 @@ if($validated_data === false) {
 }
 else if ($_POST['password'] !== $_POST['cpassword']) 
 {
-	echo  "<center><font color='red'>Passwords do not match </font></center>";
+	echo  "<center><font color='red'>Las contraseñas no coinciden </font></center>";
 	include ('register.php');
 }
 else {
@@ -38,7 +38,7 @@ else {
       $run_check = mysqli_query($conn , $checkusername) or die(mysqli_error($conn));
       $count = mysqli_num_rows($run_check); 
       if ($count > 0 ) {
-	  echo  "<center><font color='red'>username already taken! try a different one</font></center>";
+	  echo  "<center><font color='red'>Nombre de usuario ya registrado. Prueba otro !!</font></center>";
 	  include ('register.php');
 	  exit();
 }

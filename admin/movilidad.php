@@ -49,7 +49,7 @@ while ($row = mysqli_fetch_array($run_query)) {
                 
                 <hr>
 	       		<p><h2><a href="#"><?php echo $post_actividad; ?></a></h2></p>
-	       		<p><h2><span><?php echo $post_author; ?></span></h2>
+	       		<p><h2><i class="fa-solid fa-person"></i><span class=""><?php echo $post_author; ?></span></h2>
                 <p><h3>Movilidad <a href="#"><?php echo $post_descripcion; ?></a></h3></p>
                 <p>Modalidad: <?php echo $post_tipo_movilidad;?> -  <?php $post_modalidad;?></p>
                 <p>Lugar: <?php echo $post_lugar;?></p>
@@ -57,13 +57,22 @@ while ($row = mysqli_fetch_array($run_query)) {
                 <p><span class="glyphicon glyphicon-time"></span>Fecha de fin de movilidad <?php echo $post_fecha_fin; ?></p>
 				<p>Institución: <?php echo $post_instituto; ?></p>
                 <p>Ciudad: <?php echo $post_ciudad; ?></p>
-                <p>Dependencia: <?php echo $post_dependencia;?></p>
+                <p>Dependencia: <?php echo $post_modalidad;?></p>
+                <p>Estado de la movilidad: <?php 
+                if($post_status == 'published'){
+                    echo "Aprobado y Publicado";
+                }else{
+                    echo "Pendiente, No publicado";
+                }
+                
+                ?></p>
 				
                 <hr>
 
                 <hr>
                 <?php } }
-                else { echo"<script>alert('error');</script>"; } ?>
+                else { echo"<div class='alert alert-danger' role='alert'>
+  This is a danger alert with <a href='#' class='alert-link'>Error link</a>Intenta mas tarde.</div>"; } ?>
 	        	
   </div>
 

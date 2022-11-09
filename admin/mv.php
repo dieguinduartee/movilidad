@@ -32,12 +32,14 @@
                     <tr>
                         <th>ID</th>
                         <th>Autor</th>
-                        <th>Título</th>
-                        <th>Estado</th>
-                        <th>Imagen</th>
-                        <th>Tags</th>
-                        <th>Fecha</th>
-                        <th>Ver </th>
+                        <th>Actividad</th>
+                        <th>Descripcion</th>
+                        <th>Instituto</th>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Fin</th>
+                        <th>Ciudad</th>
+                        <th>Lugar</th>
+                        <th>Modalidad</th>
                         <th>Editar</th>
                         <th>Borrar</th>
                         <th>Publicar</th>
@@ -47,7 +49,7 @@
 
                  <?php
 
-$query = "SELECT * FROM posts ORDER BY id DESC";
+$query = "SELECT * FROM movilidad ORDER BY id DESC";
 $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
@@ -94,11 +96,11 @@ else {
  <?php
     if (isset($_GET['del'])) {
         $post_del = mysqli_real_escape_string($conn, $_GET['del']);
-        $del_query = "DELETE FROM posts WHERE id='$post_del'";
+        $del_query = "DELETE FROM movilidad WHERE id='$post_del'";
         $run_del_query = mysqli_query($conn, $del_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
-            echo "<script>alert('Publicación eliminada con éxito');
-            window.location.href='posts.php';</script>";
+            echo "<script>alert('Movilidad eliminada con éxito');
+            window.location.href='movilidades.php';</script>";
         }
         else {
          echo "<script>alert('Ocurrió un error. Intente nuevamente!');</script>";   
@@ -106,11 +108,11 @@ else {
         }
         if (isset($_GET['pub'])) {
         $post_pub = mysqli_real_escape_string($conn,$_GET['pub']);
-        $pub_query = "UPDATE posts SET status='published' WHERE id='$post_pub'";
+        $pub_query = "UPDATE movilidad SET status='published' WHERE id='$post_pub'";
         $run_pub_query = mysqli_query($conn, $pub_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
-            echo "<script>alert('publicado satisfactoriamente');
-            window.location.href='posts.php';</script>";
+            echo "<script>alert('Movilidad publicada satisfactoriamente');
+            window.location.href='movilidades.php';</script>";
         }
         else {
          echo "<script>alert('Ocurrió un error. Intente nuevamente');</script>";   

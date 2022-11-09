@@ -67,23 +67,29 @@ while ($row = mysqli_fetch_array($run_query)) {
     $post_ciudad = $row['ciudad'];
     $post_modalidad = $row['modalidad'];
     $post_status = $row['status'];
-
-    echo "<tr>";
-    echo "<td>$post_id</td>";
-    echo "<td>$post_author</td>";
-    echo "<td>$post_lugar</td>";
-    echo "<td>$post_actividad</td>";
-    echo "<td>$post_descripcion</td>";
-    echo "<td>$post_tipo_movilidad</td>";
-    echo "<td>$post_instituto</td>";
-    echo "<td>$post_fecha_inicio</td>";
-    echo "<td>$post_fecha_fin</td>";
-    echo "<td>$post_ciudad</td>";
-    echo "<td>$post_modalidad</td>";
-    echo "<td><a href='movilidad.php?post=$post_id' style='color:green'>Ver</a></td>";
-    echo "<td><a href='editmovilidad.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
-    echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta movilidad?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>Eliminar</a></td>";
-    echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas publicar esta movilidad?')\"href='?pub=$post_id'><i class='fa fa-times' style='color: red;'></i>Publicar</a></td>";
+?>
+    <?php if ($post_status == 'published'){
+       echo "<tr style='background-color: #74992e;'>";
+    }else{
+        echo "<tr style='background-color: rgb(255, 255, 128);'>";
+    }
+        ?>
+    <td><?php echo $post_id; ?></td>
+    <td><?php echo $post_author; ?></td>
+    <td><?php echo $post_lugar; ?></td>
+    <td><?php echo $post_actividad; ?></td>
+    <td><?php echo $post_descripcion; ?></td>
+    <td><?php echo $post_tipo_movilidad; ?></td>
+    <td><?php echo $post_instituto; ?></td>
+    <td><?php echo $post_fecha_inicio; ?></td>
+    <td><?php echo $post_fecha_fin; ?></td>
+    <td><?php echo $post_ciudad; ?></td>
+    <td><?php echo $post_modalidad; ?></td>
+    <?php 
+    echo "<td><a class='btn btn-success btn-sm' role='button' href='movilidad.php?post=$post_id' style='color:green'>Ver</a></td>";
+    echo "<td><a class='btn btn-primary btn-sm' role='button' href='editmovilidad.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
+    echo "<td><a class='btn btn-danger btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta movilidad?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>Eliminar</a></td>";
+    echo "<td><a class='btn btn-warning btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas publicar esta movilidad?')\"href='?pub=$post_id'><i class='fa fa-times' style='color: red;'></i>Publicar</a></td>";
 
     echo "</tr>";
 
@@ -106,7 +112,7 @@ else {
  <?php
     if (isset($_GET['del'])) {
         $post_del = mysqli_real_escape_string($conn, $_GET['del']);
-        $del_query = "DELETE FROM movilidad WHERE id='$post_del'";
+        $del_query = "DELETE FROM movilidad WHERE id=$post_del";
         $run_del_query = mysqli_query($conn, $del_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
             echo "<script>alert('Movilidad eliminada con éxito');
@@ -118,7 +124,7 @@ else {
         }
         if (isset($_GET['pub'])) {
         $post_pub = mysqli_real_escape_string($conn,$_GET['pub']);
-        $pub_query = "UPDATE movilidad SET status='published' WHERE id='$post_pub'";
+        $pub_query = "UPDATE movilidad SET status='published' WHERE id=$post_pub";
         $run_pub_query = mysqli_query($conn, $pub_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
             echo "<script>alert('publicado satisfactoriamente');
@@ -194,9 +200,9 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td>$post_fecha_fin</td>";
     echo "<td>$post_ciudad</td>";
     echo "<td>$post_modalidad</td>";
-    echo "<td><a href='movilidad.php?post=$post_id' style='color:green'>Ver</a></td>";
-    echo "<td><a href='editmovilidad.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
-    echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta movilidad?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>borrar</a></td>";
+    echo "<td><a class='btn btn-success btn-sm' role='button' href='movilidad.php?post=$post_id' style='color:green'>Ver</a></td>";
+    echo "<td><a class='btn btn-primary btn-sm' role='button' href='editmovilidad.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
+    echo "<td><a class='btn btn-danger btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta movilidad?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>borrar</a></td>";
 
     echo "</tr>";
 
@@ -306,9 +312,9 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td>$post_fecha_fin</td>";
     echo "<td>$post_ciudad</td>";
     echo "<td>$post_modalidad</td>";
-    echo "<td><a href='movilidad.php?post=$post_id' style='color:green'>Ver</a></td>";
-    echo "<td><a href='editmovilidad.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
-    echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta publicación?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>delete</a></td>";
+    echo "<td><a class='btn btn-success btn-sm' role='button' href='movilidad.php?post=$post_id' style='color:green'>Ver</a></td>";
+    echo "<td><a class='btn btn-primary btn-sm' role='button' href='editmovilidad.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
+    echo "<td><a class='btn btn-danger btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta publicación?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>delete</a></td>";
 
     echo "</tr>";
 
@@ -331,8 +337,10 @@ else {
         $del_query = "DELETE FROM movilidad WHERE id='$post_del' AND author='$currentuser'";
         $run_del_query = mysqli_query($conn, $del_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
-            echo "<script>alert('Movilidad eliminada con éxito');
-            window.location.href='movilidades.php';</script>";
+            echo '
+            <div class="alert alert-success" role="alert">
+  Movilidad eliminada con exito <a href="#" class="alert-link">Mira tus movilidades</a>.
+</div><script>window.location.href="movilidades.php";</script>';
         }
         else {
          echo "<script>alert('Ocurrió un error. Intenta nuevamente');</script>";   

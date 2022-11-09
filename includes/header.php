@@ -1,5 +1,10 @@
 <?php 
 include('connection.php');
+
+session_start();
+if (isset($_SESSION['role'])) {
+	echo "<script>window.location.href='admin/';</script>";	
+}
 ?>
 
 <!DOCTYPE html>

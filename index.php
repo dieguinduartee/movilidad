@@ -70,11 +70,9 @@
 
     </div>
 
-
+<section>
     <div class="container">
         <div class="row">
-	        
-	        <div class="col-md-8">
 
 <?php
 $query = "SELECT * FROM movilidad WHERE status='published' ORDER BY updated_on DESC";
@@ -91,46 +89,32 @@ while ($row = mysqli_fetch_assoc($run_query)) {
     $post_fecha_inicio = $row['fecha_inicio'];
     $post_fecha_fin = $row['fecha_fin'];
     $post_ciudad = $row['ciudad'];
-    $post_dependencia = $row['dependencia'];
+    $post_modalidad = $row['modalidad'];
     //$post_image = $row['image'];
   $post_status = $row['status'];
   if ($post_status !== 'published') {
-    echo "NO POST PLS";
+    echo "NO MOVILIDADES PLS";
   } else {
 
     ?>
-<p><h2><a href="publicposts.php?post=<?php echo $post_id; ?>"><?php echo $post_actividad; ?></a></h2></p>
-            <p><h3>Autor <a href="#"><?php echo $post_author; ?> Modalidad: <?php echo $post_tipo_movilidad;?> </a></h3></p>
-            <p><span class="glyphicon glyphicon-time"></span>Fecha de inicio de movilidad <?php echo $post_fecha_inicio; ?></p>
-            <hr><a href="publicposts.php?post=<?php echo $post_id; ?>">
-            <p><?php echo $post_descripcion; ?></p>
-            <!-- <img class="img-responsive img-rounded" src="allpostpics/<?php echo $post_image; ?>" alt="900 * 300"></a> -->
-            <hr>
-            <a href="publicposts.php?post=<?php echo $post_id; ?>"><button type="button" class="btn btn-primary">Ver más<span class="glyphicon glyphicon-chevron-right"></span></button></a>
-            <hr>
-            
-            <?php }}}?>
-
-            <hr>
-            <ul class="pager">
-          <li class="previous"><a href="#" ><span class="glyphicon glyphicon-arrow-left"></span> Anteriores</a></li>
-          <li class="next"><a href="#">Más nuevos <span class="glyphicon glyphicon-arrow-right"></span></a></li>
-        </ul>
-          </div>
-
-
-	        
-	        <div class="col-md-4">
-
-
-	        </div>
-	        
-        </div>
-
-        
-        
-        
-    </div>
+    <div class="col-md-6">     
+   	<div class="card" style="width: auto;">
+  <div class="card-body">
+    <h5 class="card-title"><?php echo $post_actividad; ?></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><?php echo $post_author; ?></h6>
+    <p class="card-text"><?php echo $post_descripcion?></p>
+    <p class=""><?php echo $post_instituto; ?></p>
+    <p class=""><?php echo $post_ciudad; ?></p>
+    <hr/><hr/>
+  </div>
+  </div>
+</div>
+   <?php } }}?>
+   </div>
+   </div>
+   </div>
+   </section>
+    
    <?php include 'includes/footer.php';?>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>

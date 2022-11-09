@@ -8,7 +8,7 @@
 
 body {
     margin-top: 100px;
-    background-color: #222;
+    background-color: #fff;
 }
 
 @media(min-width:768px) {
@@ -122,8 +122,7 @@ ul.alert-dropdown {
         margin-left: -225px;
         border: none;
         border-radius: 0;
-        overflow-y: auto;
-        background-color: #222;
+        overflow-y: hidden;
         bottom: 0;
         overflow-x: hidden;
         padding-bottom: 40px;
@@ -136,7 +135,6 @@ ul.alert-dropdown {
     .side-nav li a:hover,
     .side-nav li a:focus {
         outline: none;
-        background-color: #000 !important;
     }
 }
 
@@ -148,7 +146,7 @@ ul.alert-dropdown {
     display: block;
     padding: 10px 15px 10px 38px;
     text-decoration: none;
-    color: #999;
+    color: #fff;
 }
 
 .side-nav>li>ul>li>a:hover {

@@ -59,18 +59,21 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td>$post_movilidad</td>";
     echo "<td>$post_descripcion</td>";
     echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Post Image' ></td>";
-    echo "<td><a href='post.php?post=$post_id' style='color:green'>Ver</a></td>";
-    echo "<td><a href='editposts.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
-    echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta publicación?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>Eliminar</a></td>";
-    echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas publicar esta publicación?')\"href='?pub=$post_id'><i class='fa fa-times' style='color: red;'></i>Publicar</a></td>";
+    echo "<td><a class='btn btn-success btn-sm' role='button' href='post.php?post=$post_id' style='color:green'>Ver</a></td>";
+    echo "<td><a class='btn btn-primary btn-sm' role='button' href='editposts.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
+    echo "<td><a class='btn btn-danger btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta publicación?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>Eliminar</a></td>";
+    echo "<td><a class='btn btn-warning btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas publicar esta publicación?')\"href='?pub=$post_id'><i class='fa fa-times' style='color: red;'></i>Publicar</a></td>";
 
     echo "</tr>";
 
 }
 }
 else {
-    echo "<script>alert('No hay evidencias aún');
-    window.location.href= 'publishnews.php';</script>";
+    echo
+    '<div class="alert alert-danger" role="alert">
+  No hay evidencias aún!
+  <script>window.location.href="publishnews.php";</script>
+</div>';
 }
 ?>
 
@@ -88,11 +91,15 @@ else {
         $del_query = "DELETE FROM evidencia WHERE id='$post_del'";
         $run_del_query = mysqli_query($conn, $del_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
-            echo "<script>alert('Publicación eliminada con éxito');
-            window.location.href='posts.php';</script>";
+            echo '<div class="alert alert-success" role="alert">
+            Evidencia eliminada con exito <a href="#" class="alert-link">Mira tus evidencias!</a>..
+          </div>
+            <script>window.location.href="posts.php";</script>';
         }
         else {
-         echo "<script>alert('Ocurrió un error. Intente nuevamente!');</script>";   
+         echo '<div class="alert alert-danger" role="alert">
+           Una simple alerta danger con <a href="#" class="alert-link">un enlace de ejemplo</a>. Dale un clic si quieres.
+         </div>';   
         }
         }
         if (isset($_GET['pub'])) {
@@ -153,10 +160,9 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td>$post_movilidad</td>";
     echo "<td>$post_descripcion</td>";
     echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Evidencia imagen' ></td>";
-    echo "<td><a href='post.php?post=$post_id' style='color:green'>Ver</a></td>";
-    echo "<td><a href='editposts.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
-    echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta evidencia?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>borrar</a></td>";
-    echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas publicar esta evidencia?')\"href='?pub=$post_id'><i class='fa fa-times' style='color: red;'></i>publish</a></td>";
+    echo "<td><a class='btn btn-success btn-sm' role='button' href='post.php?post=$post_id' style='color:green'>Ver</a></td>";
+    echo "<td><a class='btn btn-primary btn-sm' role='button' href='editposts.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
+    echo "<td><a class='btn btn-danger btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta evidencia?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>borrar</a></td>";
 
     echo "</tr>";
 
@@ -245,9 +251,9 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td>$post_movilidad</td>";
     echo "<td>$post_descripcion</td>";
     echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Evidencia Imagen' ></td>";
-    echo "<td><a href='post.php?post=$post_id' style='color:green'>Ver</a></td>";
-    echo "<td><a href='editposts.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
-    echo "<td><a onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta evidencia?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>delete</a></td>";
+    echo "<td><a class='btn btn-success btn-sm' role='button' href='post.php?post=$post_id' style='color:green'>Ver</a></td>";
+    echo "<td><a class='btn btn-primary btn-sm' role='button' href='editposts.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
+    echo "<td><a class='btn btn-danger btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta evidencia?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>delete</a></td>";
 
     echo "</tr>";
 

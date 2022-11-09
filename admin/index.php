@@ -52,6 +52,36 @@ echo "<div class='text-right huge'>{$post_num}</div>";
                     </div>
 
                     <div class="col-md-6 col-lg-3">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-file-text fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9">
+                                    <?php
+$query = "SELECT * FROM evidencia";
+$result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+$post_num = mysqli_num_rows($result);
+echo "<div class='text-right huge'>{$post_num}</div>";
+?>
+
+                                        <div class="text-right">EVIDENCIAS</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="movilidades.php">
+                                <div class="panel-footer">
+                                    <span class="pull-left">VER TODAS LAS EVIDENCIAS</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
                         <div class="panel panel-yellow">
                             <div class="panel-heading">
                                 <div class="row">
@@ -84,7 +114,7 @@ echo "<div class='text-right huge'>{$user_num}</div>";
             </div>
             
         </div>
-        
+</div>
 </div>
         
    <?php include 'includes/adminfooter.php';?>

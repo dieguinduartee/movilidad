@@ -8,14 +8,14 @@
         <div class="row">
 	        <!-- Page Content -->
 	        <div class="col-md-8">
-            <h1 class="page-header">SEARCH RESULTS</h1>
+            <h1 class="page-header">Resultados de busqueda</h1>
             <?php
 if (isset($_POST['submit'])) {
 	$search = htmlspecialchars(mysqli_real_escape_string($conn, $_POST["search"]));
 	if(empty($search)) {
 		header('location: index.php');
 	}
-	$query = "SELECT * FROM posts WHERE tag LIKE '%$search%' AND status='published'";
+	$query = "SELECT * FROM movilidad WHERE actividad LIKE '%$search%' AND status='published'";
 	$search_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 	$count = mysqli_num_rows($search_query);
 	if ($count == 0) {
