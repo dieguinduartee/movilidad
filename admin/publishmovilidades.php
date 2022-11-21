@@ -77,8 +77,8 @@ else {
 <form role="form" action="" method="POST" enctype="multipart/form-data" class="colores">
 		
 	<div class="form-group">
-		<label for='lugar'>Lugar</label>
-		<select class="form-control" name="lugar" id="lugar">
+		<label for='lugar'>Ámbito *</label>
+		<select class="form-control" name="lugar" id="lugar" *>
 			<option value='Local'>Local</option>
 			<option value='Nacional'>Nacional</option>
 			<option value='Internacional'>Internacional</option>
@@ -86,25 +86,25 @@ else {
 	</div>
 	
 	<div class="form-group">
-		<label for='tipo_movilidad'>Tipo de Movilidad</label>
-		<select class="form-control" name="tipo_movilidad" id="tipo_movilidad">
+		<label for='tipo_movilidad'>Tipo de Movilidad *</label>
+		<select class="form-control" name="tipo_movilidad" id="tipo_movilidad" required>
 			<option value='Entrante'>Entrante</option>
 			<option value='Saliente'>Saliente</option>
 		</select>
 	</div>
 
     <div class="form-group">
-        <label for="post_actividad">Actividad</label>
+        <label for="post_actividad">Actividad *</label>
         <input type="text" name="actividad" placeholder = "Ingresa la actividad " value= "<?php if(isset($_POST['actividad'])) { echo $post_actividad; } ?>"  class="form-control" required>
     </div>
 
 	<div class="form-group">
-        <label for="post_descripcion">descripción</label>
+        <label for="post_descripcion">descripción *</label>
         <input type="text" name="descripcion" placeholder = "Ingresa la descripción " value= "<?php if(isset($_POST['descripcion'])) { echo $post_descripcion; } ?>"  class="form-control" required>
     </div>
     
     <div class="form-group">
-        <label for="post_instituto">Instituto</label>
+        <label for="post_instituto">Instituto *</label>
         <input type="text" name="instituto" placeholder = "Ingresa la institución " value= "<?php if(isset($_POST['institucion'])) { echo $post_instituto; } ?>"  class="form-control" required>
     </div>
     
@@ -119,12 +119,12 @@ else {
     </div>
     
     <div class="form-group">
-        <label for="post_ciudad">Ciudad</label>
+        <label for="post_ciudad">Ciudad/Pais *</label>
         <input type="text" name="ciudad" placeholder = "Ingresa la Ciudad " value= "<?php if(isset($_POST['ciudad'])) { echo $post_ciudad; } ?>"  class="form-control" required>
     </div>
     
     <div class="form-group">
-        <label for="modalidad">Modalidad</label>
+        <label for="modalidad">Modalidad *</label>
         <select class="form-control" name="modalidad" id="movilidad">
 			<option value='Presencial'>Presencial</option>
 			<option value='Virtual'>Virtual</option>

@@ -32,7 +32,7 @@
 echo "<option value='Docente'>Docente</option>";
 echo "<option value='Estudiante'>Estudiante</option>";
 ?>
-</select>
+</select></div>
 
 
 			

@@ -30,20 +30,25 @@
                                     </div>
                                     <div class="col-xs-9">
                                     <?php
-$query = "SELECT * FROM movilidad";
+                                    if($_SESSION['role'] == 'superadmin') {
+                                        $query = "SELECT * FROM movilidad";
+                                    }else{
+                                        $currentuser = $_SESSION['firstname'];
+                                        $query = "SELECT * FROM movilidad WHERE author = $currentuser";
+                                    }
 $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
 $post_num = mysqli_num_rows($result);
 echo "<div class='text-right huge'>{$post_num}</div>";
 ?>
 
-                                        <div class="text-right">EXPERIENCIAS</div>
+                                        <div class="text-right">MOVILIDADES</div>
 
                                     </div>
                                 </div>
                             </div>
                             <a href="movilidades.php">
                                 <div class="panel-footer">
-                                    <span class="pull-left">VER TODAS LAS EXPERIENCIAS</span>
+                                    <span class="pull-left">VER TODAS LAS EXPERIENCIAS DE MOVILIDAD</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
@@ -71,7 +76,7 @@ echo "<div class='text-right huge'>{$post_num}</div>";
                                     </div>
                                 </div>
                             </div>
-                            <a href="movilidades.php">
+                            <a href="posts.php">
                                 <div class="panel-footer">
                                     <span class="pull-left">VER TODAS LAS EVIDENCIAS</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

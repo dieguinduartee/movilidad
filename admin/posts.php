@@ -44,7 +44,7 @@
 
                  <?php
 
-$query = "SELECT * FROM evidencia ORDER BY id DESC";
+$query = "SELECT m.actividad, m.descripcion_actividad, e.id, e.movilidad, e.image, e.descripcion, e.updated_on, e.status, m.author FROM evidencia as e INNER JOIN movilidad as m ON m.id = e.movilidad  ORDER BY e.id DESC;";
 $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
@@ -53,10 +53,12 @@ while ($row = mysqli_fetch_array($run_query)) {
     $post_image = $row['image'];
     $post_descripcion = $row['descripcion'];
     $post_status = $row['status'];
+    $post_actividad_movilidad = $row['actividad'];
+    $post_autor_movilidad = $row['author'];
 
     echo "<tr>";
     echo "<td>$post_id</td>";
-    echo "<td>$post_movilidad</td>";
+    echo "<td>$post_autor_movilidad - $post_actividad_movilidad</td>";
     echo "<td>$post_descripcion</td>";
     echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Post Image' ></td>";
     echo "<td><a class='btn btn-success btn-sm' role='button' href='post.php?post=$post_id' style='color:green'>Ver</a></td>";
@@ -144,7 +146,7 @@ else if($_SESSION['role'] == 'admin') {
 
 <?php
 $currentuser = $_SESSION['firstname'];
-$query = "SELECT e.id, e.movilidad, e.image, e.descripcion, e.updated_on, e.status FROM evidencia as e INNER JOIN movilidad as m ON m.id = e.movilidad WHERE m.author = '$currentuser' ORDER BY e.id DESC;";
+$query = "SELECT m.actividad, m.descripcion_actividad, e.id, e.movilidad, e.image, e.descripcion, e.updated_on, e.status FROM evidencia as e INNER JOIN movilidad as m ON m.id = e.movilidad WHERE m.author = '$currentuser' ORDER BY e.id DESC;";
 $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
@@ -154,10 +156,11 @@ while ($row = mysqli_fetch_array($run_query)) {
     $post_image = $row['image'];
     $post_descripcion = $row['descripcion'];
     $post_status = $row['status'];
+    $post_actividad_movilidad = $row['actividad'];
 
     echo "<tr>";
     echo "<td>$post_id</td>";
-    echo "<td>$post_movilidad</td>";
+    echo "<td>$post_actividad</td>";
     echo "<td>$post_descripcion</td>";
     echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Evidencia imagen' ></td>";
     echo "<td><a class='btn btn-success btn-sm' role='button' href='post.php?post=$post_id' style='color:green'>Ver</a></td>";
@@ -236,7 +239,7 @@ else {
                  <?php
                  $currentuser = $_SESSION['firstname'];
 
-$query = "SELECT e.id, e.movilidad, e.image, e.descripcion, e.updated_on, e.status FROM evidencia as e INNER JOIN movilidad as m ON m.id = e.movilidad WHERE m.author = '$currentuser' ORDER BY e.id DESC;";
+$query = "SELECT e.id, e.movilidad, m.actividad, e.image, e.descripcion, e.updated_on, e.status FROM evidencia as e INNER JOIN movilidad as m ON m.id = e.movilidad WHERE m.author = '$currentuser' ORDER BY e.id DESC;";
 $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
@@ -245,10 +248,11 @@ while ($row = mysqli_fetch_array($run_query)) {
     $post_image = $row['image'];
     $post_descripcion = $row['descripcion'];
     $post_status = $row['status'];
+    $post_actividad_movilidad = $row['actividad'];
 
     echo "<tr>";
     echo "<td>$post_id</td>";
-    echo "<td>$post_movilidad</td>";
+    echo "<td>$post_actividad_movilidad</td>";
     echo "<td>$post_descripcion</td>";
     echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Evidencia Imagen' ></td>";
     echo "<td><a class='btn btn-success btn-sm' role='button' href='post.php?post=$post_id' style='color:green'>Ver</a></td>";

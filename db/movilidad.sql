@@ -19,9 +19,9 @@ CREATE TABLE movilidad (
   author varchar(225) COLLATE utf8mb4_spanish2_ci NOT NULL,
   postdate date NOT NULL,
   updated_on timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  status varchar(225) COLLATE utf8mb4_spanish2_ci NOT NULL,
-  lugar varchar(255) COLLATE utf8mb4_spanish2_ci NOT NULL DEFAULT 'nacional',
-  modalidad varchar(255) COLLATE utf8mb4_spanish2_ci NOT NULL DEFAULT 'presencial'
+  status varchar(225) COLLATE utf8mb4_spanish2_ci default 'draft',
+  lugar varchar(255) COLLATE utf8mb4_spanish2_ci NOT NULL,
+  modalidad varchar(255) COLLATE utf8mb4_spanish2_ci NOT NULL
 );
 
 
@@ -31,7 +31,7 @@ CREATE TABLE evidencia(
   image text COLLATE utf8mb4_spanish2_ci NOT NULL,
   descripcion text COLLATE utf8mb4_spanish2_ci NOT NULL,
   updated_on timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  status varchar(225) COLLATE utf8mb4_spanish2_ci NOT NULL
+  status varchar(225) COLLATE utf8mb4_spanish2_ci default 'draft'
 );
 
 CREATE TABLE users (
@@ -46,7 +46,7 @@ CREATE TABLE users (
 
 
 INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `password`, `role`) VALUES
-(1, 'judith_pilar', 'Judith del Pilar Rodriguez Tenjo', 'Docente', 'judithpilar@gmail.com', '$2y$10$aAmN2D98aEXP9RLxLYrMfO8JeyI8wGjM2DvSxSK37PO4HL8ZC5kdu', 'superadmin'),
+(1, 'diego', 'Diego Duarte', 'Docente', 'diego_duarte@gmail.com', '$2y$10$aAmN2D98aEXP9RLxLYrMfO8JeyI8wGjM2DvSxSK37PO4HL8ZC5kdu', 'superadmin'),
 (44, '1151605', 'diego alexis duarte martinez', 'Estudiante', 'diego.duartee5555@gmail.com', '$2y$10$d55Ep3nLUauN16r7N.ioieS9roBFj4tHHyyIQH4cjxsZK6H.Olx12', 'user'),
 (45, '1151606', 'juan', 'Docente', 'juancarlos@gmail.com', '$2y$10$QTvR3tFDAfg7U4hrX1D86OYcOWp2YDSzSrE7UKDePVCXKKFZh3jUq', 'admin'),
 (46, '1151604', 'MARIA FERNANDA MARTINEZ', 'Estudiante', 'maria@gmail.com', '$2y$10$p7yxasQztmA7bQxiZ0yXvu//kb47uGQgPNCwRfR4qrSOAei/kE1um', 'user'),

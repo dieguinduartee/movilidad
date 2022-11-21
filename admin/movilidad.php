@@ -44,25 +44,37 @@ while ($row = mysqli_fetch_array($run_query)) {
         <div class="row">
 
             
-            <div class="col-lg-8">
+            <div class="col-lg-12">
 
                 
                 <hr>
 	       		<p><h2><a href="#"><?php echo $post_actividad; ?></a></h2></p>
-	       		<p><h2><i class="fa-solid fa-person"></i><span class=""><?php echo $post_author; ?></span></h2>
-                <p><h3>Movilidad <a href="#"><?php echo $post_descripcion; ?></a></h3></p>
-                <p>Modalidad: <?php echo $post_tipo_movilidad;?> -  <?php $post_modalidad;?></p>
-                <p>Lugar: <?php echo $post_lugar;?></p>
+	       		<p><h2><i class="glyphicon glyphicon-user"></i><span class=""><?php echo $post_author; ?></span></h2>
+                <p><h3><i class="glyphicon glyphicon-list-alt "></i>Movilidad:  <?php echo $post_descripcion; ?></h3></p>
+                <p>Modalidad: <?php
+                if($post_tipo_movilidad == 'entrante'){
+                    echo "<i class='glyphicon glyphicon-log-in'></i><span class='mx-1'>Entrante</span>";
+                }else{
+                    echo "<i class='glyphicon glyphicon-log-out'></i><span class='mx-1'>Saliente</span>";
+                }?> -  <?php $post_modalidad;?></p>
+                <p><i class="glyphicon glyphicon-globe"></i>Lugar: <?php echo $post_ciudad;?></p>
                 <p><span class="glyphicon glyphicon-time"></span>Fecha de inicio de movilidad <?php echo $post_fecha_inicio; ?></p>
                 <p><span class="glyphicon glyphicon-time"></span>Fecha de fin de movilidad <?php echo $post_fecha_fin; ?></p>
-				<p>Institución: <?php echo $post_instituto; ?></p>
-                <p>Ciudad: <?php echo $post_ciudad; ?></p>
-                <p>Dependencia: <?php echo $post_modalidad;?></p>
-                <p>Estado de la movilidad: <?php 
-                if($post_status == 'published'){
-                    echo "Aprobado y Publicado";
+				<p><i class="glyphicon glyphicon-map-marker"></i>Institución: <?php echo $post_instituto; ?></p>
+                <p>Modalidad: <?php echo $post_modalidad;?></p>
+                <?php
+                if($post_modalidad == 'presencial'){
+                    echo "<i class='glyphicon glyphicon-ok'></i>Aprobado y Publicado";
                 }else{
-                    echo "Pendiente, No publicado";
+                    echo "<i class='glyphicon glyphicon-remove'></i>Pendiente, No publicado";
+                }
+                ?>
+
+                <p>Estado de la movilidad: <?php
+                if($post_status == 'published'){
+                    echo "<i class='glyphicon glyphicon-ok'></i>Aprobado y Publicado";
+                }else{
+                    echo "<i class='glyphicon glyphicon-remove'></i>Pendiente, No publicado";
                 }
                 
                 ?></p>

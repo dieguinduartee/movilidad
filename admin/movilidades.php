@@ -89,8 +89,11 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td><a class='btn btn-success btn-sm' role='button' href='movilidad.php?post=$post_id' style='color:green'>Ver</a></td>";
     echo "<td><a class='btn btn-primary btn-sm' role='button' href='editmovilidad.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
     echo "<td><a class='btn btn-danger btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta movilidad?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>Eliminar</a></td>";
-    echo "<td><a class='btn btn-warning btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas publicar esta movilidad?')\"href='?pub=$post_id'><i class='fa fa-times' style='color: red;'></i>Publicar</a></td>";
-
+    if ($post_status == "draft") {
+        echo "<td><a class='btn btn-warning btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas publicar esta movilidad?')\"href='?pub=$post_id'><i class='fa fa-times' style='color: red;'></i>Publicar</a></td>";
+    }else{
+        echo "<td><a class='btn btn-secondary btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas despublicar esta movilidad?')\"href='?nopub=$post_id'><i class='fa fa-times' style='color: red;'></i>Publicar</a></td>";
+    }
     echo "</tr>";
 
 }
@@ -134,6 +137,18 @@ else {
          echo "<script>alert('Ocurrió un error. Intente nuevamente');</script>";   
         }
         }
+        if (isset($_GET['nopub'])) {
+        $post_pub = mysqli_real_escape_string($conn,$_GET['nopub']);
+        $pub_query = "UPDATE movilidad SET status='draft' WHERE id=$post_pub";
+        $run_pub_query = mysqli_query($conn, $pub_query) or die (mysqli_error($conn));
+        if (mysqli_affected_rows($conn) > 0) {
+            echo "<script>alert('La publicación ha sido despublicada');
+                window.location.href='movilidades.php';</script>";
+        }
+        else {
+            echo "<script>alert('Ocurrió un error. Intente nuevamente');</script>";
+        }
+}
 
 ?>
 <?php 
@@ -145,7 +160,7 @@ else if($_SESSION['role'] == 'admin') {
         <div class="table-responsive">
 
 <form action="" method="post">
-            <table class="table table-bordered table-striped table-hover">
+            <table class="table table-bordered table-striped table-hover table-responsive">
 
 
             <thead>
@@ -187,7 +202,14 @@ while ($row = mysqli_fetch_array($run_query)) {
     $post_modalidad = $row['modalidad'];
     $post_status = $row['status'];
 
-    echo "<tr>";
+    echo "<tr>";?>
+    <?php if ($post_status == 'published'){
+       echo "<tr style='background-color: #74992e;'>";
+    }else{
+        echo "<tr style='background-color: rgb(255, 255, 128);'>";
+    }
+        ?>
+    <?php
     
     echo "<td>$post_id</td>";
     echo "<td>$post_author</td>";
@@ -301,6 +323,13 @@ while ($row = mysqli_fetch_array($run_query)) {
     
 
     echo "<tr>";
+    ?>
+    <?php if ($post_status == 'published'){
+        echo "<tr style='background-color: #74992e;'>";
+    }else{
+        echo "<tr style='background-color: rgb(255, 255, 128);'>";
+    } ?>
+    <?php
     echo "<td>$post_id</td>";
     echo "<td>$post_author</td>";
     echo "<td>$post_lugar</td>";
