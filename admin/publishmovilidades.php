@@ -35,7 +35,7 @@ if($validated_data === false) {
     ?>
     <center><font color="red" > <?php echo $gump->get_readable_errors(true); ?> </font></center>
     <?php 
-    $post_actividad = $_POST['actividad'];
+      $post_actividad = $_POST['actividad'];
       $post_descripcion = $_POST['descripcion'];
       $post_lugar = $_POST['lugar'];
       $post_tipo_movilidad = $_POST['tipo_movilidad'];

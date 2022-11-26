@@ -60,7 +60,7 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td>$post_id</td>";
     echo "<td>$post_autor_movilidad - $post_actividad_movilidad</td>";
     echo "<td>$post_descripcion</td>";
-    echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Post Image' ></td>";
+    echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Imagen de evidencia' ></td>";
     echo "<td><a class='btn btn-success btn-sm' role='button' href='post.php?post=$post_id' style='color:green'>Ver</a></td>";
     echo "<td><a class='btn btn-primary btn-sm' role='button' href='editposts.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
     echo "<td><a class='btn btn-danger btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta publicación?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>Eliminar</a></td>";
@@ -160,7 +160,7 @@ while ($row = mysqli_fetch_array($run_query)) {
 
     echo "<tr>";
     echo "<td>$post_id</td>";
-    echo "<td>$post_actividad</td>";
+    echo "<td>$post_actividad_movilidad</td>";
     echo "<td>$post_descripcion</td>";
     echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Evidencia imagen' ></td>";
     echo "<td><a class='btn btn-success btn-sm' role='button' href='post.php?post=$post_id' style='color:green'>Ver</a></td>";

@@ -46,23 +46,20 @@ $gump->filter_rules(array(
     ));
 $validated_data = $gump->run($_POST);
 
-if($validated_data === false) {
-    ?>
-    <center><font color="red" > <?php echo $gump->get_readable_errors(true); ?> </font></center>
-    <?php 
-}
-else {
-    $post_actividad = $validated_data['actividad'];
-      $post_descripcion = $validated_data['descripcion'];
-    $post_date = date('Y-m-d');
-    if ($_SESSION['role'] == 'user') {
-    	$post_status = 'draft';
-    } else {
-    $post_status = $_POST['status'];
-}
+    $actividad = $_POST['actividad'];
+    $descripcion = $_POST['descripcion'];
+    $lugar = $_POST['lugar'];
+    $tipo_movilidad = $_POST['tipo_movilidad'];
+    $instituto = $_POST['instituto'];
+    $fecha_inicio = $_POST['fecha_inicio'];
+    $fecha_fin = $_POST['fecha_fin'];
+    $ciudad = $_POST['ciudad'];
+    $modalidad = $_POST['modalidad'];
+    $fecha_inicio = $_POST['fecha_inicio'];
+    $fecha_fin = $_POST['fecha_fin'];
 
 
-        $queryupdate = "UPDATE movilidad SET actividad = '$post_actividad' , descripcion_actividad = '$post_descripcion' , lugar='$post_lugar' , tipo_movilidad = '$post_tipo_movilidad', instituto = '$post_instituto', fecha_inicio = '$post_fecha_inicio', fecha_fin = '$post_fecha_fin', ciudad = '$post_ciudad', modalidad = '$post_modalidad', 	status = '$post_status' , postdate = '$post_date' WHERE id= '$post_id' " ;
+        $queryupdate = "UPDATE movilidad SET actividad = '$actividad' , descripcion_actividad = '$descripcion' , lugar='$lugar' , tipo_movilidad = '$tipo_movilidad', instituto = '$instituto', fecha_inicio = '$fecha_inicio', fecha_fin = '$fecha_fin', ciudad = '$ciudad', modalidad = '$modalidad' WHERE id= '$post_id' " ;
         $result = mysqli_query($conn , $queryupdate) or die(mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
         	echo "<script>alert('Publicación actualizada satisfactoriamente');
@@ -70,7 +67,6 @@ else {
         }
         else {
         	echo "<script>alert('Error! .. vuélvelo a intentar');</script>";
-}
 }
 }
 }
@@ -93,7 +89,7 @@ else {
                         <form role="form" action="" method="POST" enctype="multipart/form-data">
 
 	<div class="form-group">
-		<label for='lugar'>Lugar</label>
+		<label for='lugar'>Ámbito</label>
 		<select class="form-control" name="lugar" id="lugar">
 			<option value='local' <?php $post_lugar == "local" ? print"selected": print"";?>>Local</option>
 			<option value='nacional' <?php $post_lugar == "nacional" ? print"selected": print"";?>>Nacional</option>
@@ -101,7 +97,7 @@ else {
 		</select>
 	</div>
 	
-	<div class="form-group">
+	<div class="form-group mx-1">
 		<label for='tipo_movilidad'>Tipo de Movilidad</label>
 		<select class="form-control" name="tipo_movilidad" id="tipo_movilidad">
 			<option value='Entrante' <?php $post_tipo_movilidad == "Entrante" ? print"selected": print"";?>>Entrante</option>
@@ -140,8 +136,8 @@ else {
     </div>
     
     <div class="form-group">
-        <label for="post_dependencia">Dependencia</label>
-        <select class="form-control" name="tipo_movilidad" id="tipo_movilidad">
+        <label for="modalidad">Modalidad</label>
+        <select class="form-control" name="modalidad" id="modalidad">
 			<option value='presencial' <?php $post_modalidad == "presencial" ? print"selected": print"";?>>Presencial</option>
 			<option value='virtual' <?php $post_modalidad == "virtual" ? print"selected": print"";?>>Virtual</option>
 		</select>

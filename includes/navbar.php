@@ -1,4 +1,4 @@
- <nav class="navbar navbar-light barra mb-auto navbar-fixed-top" role="navigation">
+ <nav class="navbar navbar-light barra" role="navigation">
 			<div class="container">
 
 

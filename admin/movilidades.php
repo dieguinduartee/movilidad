@@ -318,7 +318,7 @@ while ($row = mysqli_fetch_array($run_query)) {
     $post_fecha_inicio = $row['fecha_inicio'];
     $post_fecha_fin = $row['fecha_fin'];
     $post_ciudad = $row['ciudad'];
-    $post_modalidad = $row['dependencia'];
+    $post_modalidad = $row['modalidad'];
     $post_status = $row['status'];
     
 

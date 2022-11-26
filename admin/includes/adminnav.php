@@ -57,6 +57,7 @@
                         <a href="./publishnews.php">Agregar una nueva evidencias</a>
                     </li>
                 </ul>
+            <?php if($_SESSION['role'] == 'superadmin') { ?>
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#user"><i class="fa fa-fw fa-users"></i>
                     Usuarios <i class="fa fa-fw fa-caret-down"></i></a>
@@ -69,6 +70,7 @@
                     </li>
                 </ul>
             </li>
+            <?php } ?>
             <li>
                 <a href="./profile.php?section=<?php echo $_SESSION['username']; ?>"><i class="fa fa-fw fa-user"></i>
                     Perfil</a>

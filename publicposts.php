@@ -1,6 +1,18 @@
 <?php include 'includes/header.php';?>
     <!-- Navigation -->
 <?php include 'includes/navbar.php';?>
+<?php
+if (isset($_GET['post'])) {
+    $post = $_GET['post'];
+    if (!is_numeric($post)) {
+      header("location:index.php");
+
+    }
+}
+else {
+    header('location: index.php');
+}
+?>
 
 <section>
     <div class="container">
