@@ -63,9 +63,12 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td><img  width='100' src='../allpostpics/$post_image' alt='Imagen de evidencia' ></td>";
     echo "<td><a class='btn btn-success btn-sm' role='button' href='post.php?post=$post_id' style='color:green'>Ver</a></td>";
     echo "<td><a class='btn btn-primary btn-sm' role='button' href='editposts.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
-    echo "<td><a class='btn btn-danger btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta publicación?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>Eliminar</a></td>";
-    echo "<td><a class='btn btn-warning btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas publicar esta publicación?')\"href='?pub=$post_id'><i class='fa fa-times' style='color: red;'></i>Publicar</a></td>";
-
+    echo "<td><a class='btn btn-danger btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta evidencia?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>Eliminar</a></td>";
+    if($post_status != 'published') {
+        echo "<td><a class='btn btn-warning btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas publicar esta evidencia?')\"href='?pub=$post_id'><i class='fa fa-times' style='color: red;'></i>Publicar</a></td>";
+    }else{
+        echo "<td><a class='btn btn-warning btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas despublicar esta evidencia?')\"href='?despub=$post_id'><i class='fa fa-ban' style='color: red;'></i>Despublicar</a></td>";
+    }
     echo "</tr>";
 
 }
@@ -116,6 +119,18 @@ else {
          echo "<script>alert('Ocurrió un error. Intente nuevamente');</script>";   
         }
         }
+    if (isset($_GET['despub'])) {
+        $post_pub = mysqli_real_escape_string($conn,$_GET['despub']);
+        $pub_query = "UPDATE evidencia SET status='draft' WHERE id='$post_pub'";
+        $run_pub_query = mysqli_query($conn, $pub_query) or die (mysqli_error($conn));
+        if (mysqli_affected_rows($conn) > 0) {
+            echo "<script>alert('despublicado satisfactoriamente');
+            window.location.href='posts.php';</script>";
+        }
+        else {
+            echo "<script>alert('Ocurrió un error. Intente nuevamente');</script>";
+        }
+    }
 
 ?>
 <?php 

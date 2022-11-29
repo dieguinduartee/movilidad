@@ -49,7 +49,7 @@
                     <div class="row">
                         <h2 class="text-center h3">Evidencias:</h2>
                         <?php
-                        $query2 = "SELECT e.id, e.image, e.descripcion FROM movilidad m INNER JOIN evidencia e ON m.id = e.movilidad WHERE m.id = '$post_id';";
+                        $query2 = "SELECT e.id, e.image, e.descripcion FROM movilidad m INNER JOIN evidencia e ON m.id = e.movilidad WHERE m.id = '$post_id' AND e.status = 'published';";
                         $run_query2 = mysqli_query($conn, $query2) or die(mysqli_error($conn)) ;
                         if (mysqli_num_rows($run_query2) > 0 ) {
                             while ($row = mysqli_fetch_array($run_query2)) {
