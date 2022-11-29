@@ -12,9 +12,9 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                         <div class="col-xs-4">
-            <a href="publishnews.php" class="btn btn-primary">AGREGAR</a>
+            <a href="publishmovilidades.php" class="btn btn-primary">AGREGAR</a>
             </div><br/>
-                           <h1 class="titulo">TODAS LAS MOVILIDADES</h1>
+                           <h1 class="titulo"><strong>TODAS LAS MOVILIDADES</strong></h1>
                         
                          
 
@@ -90,9 +90,9 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td><a class='btn btn-primary btn-sm' role='button' href='editmovilidad.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
     echo "<td><a class='btn btn-danger btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta movilidad?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>Eliminar</a></td>";
     if ($post_status == "draft") {
-        echo "<td><a class='btn btn-warning btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas publicar esta movilidad?')\"href='?pub=$post_id'><i class='fa fa-times' style='color: red;'></i>Publicar</a></td>";
+        echo "<td><a class='btn btn-warning btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas publicar esta movilidad?')\"href='?pub=$post_id'><i class='fa fa-bookmark' style='color: red;'></i>Publicar</a></td>";
     }else{
-        echo "<td><a class='btn btn-secondary btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas despublicar esta movilidad?')\"href='?nopub=$post_id'><i class='fa fa-times' style='color: red;'></i>Publicar</a></td>";
+        echo "<td><a class='btn btn-secondary btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas despublicar esta movilidad?')\"href='?nopub=$post_id'><i class='fa fa-ban' style='color: red;'></i>Despublicar</a></td>";
     }
     echo "</tr>";
 

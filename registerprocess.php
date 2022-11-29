@@ -7,7 +7,7 @@ $_POST = $gump->sanitize($_POST);
 
 $gump->validation_rules(array(
 	'username'    => 'required|alpha_numeric|max_len,20|min_len,4',
-	'firstname'   => 'required|alpha|max_len,30|min_len,2',
+	'firstname'   => 'required|alpha_numeric_space|max_len,30|min_len,2',
 	//'lastname'    => 'required|alpha|max_len,30|min_len,1',
 	'email'       => 'required|valid_email',
 	'password'    => 'required|max_len,50|min_len,6',

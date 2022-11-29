@@ -26,7 +26,10 @@ a{
 	text-transform: uppercase;
 	color: black;
 }
-
+table {
+	display: block;
+	overflow-x: auto;
+}
 
 .barra {
 	background-color: rgb(188, 0, 23);
@@ -51,4 +54,14 @@ footer {
 	background-color: rgb(188, 0, 23);
 	color: white;
 	text-align: center;
+}
+
+@media screen and (max-width: 320px) {
+	table {
+		display: block;
+		overflow-x: auto;
+	}
+}
+
+.navbar-toggle{
 }

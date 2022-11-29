@@ -25,20 +25,16 @@
 
 				
 <div class="form-group">
-<label>Rol</label>
-<select class="form-control" name="lastname" id="">
-		    <label for="user_role">Rol a</label>
-		   <?php
-echo "<option value='Docente'>Docente</option>";
-echo "<option value='Estudiante'>Estudiante</option>";
-?>
-</select></div>
+    <label>Rol</label>
+    <select class="form-control" name="lastname" id="">
+        <label for="user_role">Rol a</label>
+        <?php
+        echo "<option value='Docente'>Docente</option>";
+        echo "<option value='Estudiante'>Estudiante</option>";
+        ?>
+    </select></div>
 
-
-			
-
-
-				<div class="form-group">
+            	<div class="form-group">
 					<label for="email">Email</label>
 					<input type="email" name="email" value= "<?php if(isset($_POST['register'])) { echo $_POST['email']; } ?>"class="form-control" required>
 				</div>

@@ -61,20 +61,20 @@ while ($row = mysqli_fetch_array($run_query)) {
                 <p><span class="glyphicon glyphicon-time"></span>Fecha de inicio de movilidad <?php echo $post_fecha_inicio; ?></p>
                 <p><span class="glyphicon glyphicon-time"></span>Fecha de fin de movilidad <?php echo $post_fecha_fin; ?></p>
 				<p><i class="glyphicon glyphicon-map-marker"></i>Institución: <?php echo $post_instituto; ?></p>
-                <p>Modalidad: <?php echo $post_modalidad;?></p>
+                <p>Modalidad:
                 <?php
                 if($post_modalidad == 'presencial'){
-                    echo "<i class='glyphicon glyphicon-ok'></i>Aprobado y Publicado";
+                    echo "<i class='fa fa-user-circle-o'></i>Presencial";
                 }else{
-                    echo "<i class='glyphicon glyphicon-remove'></i>Pendiente, No publicado";
+                    echo "<i class='fa fa-video-camera'></i>Virtual";
                 }
-                ?>
+                ?></p>
 
                 <p>Estado de la movilidad: <?php
                 if($post_status == 'published'){
-                    echo "<i class='glyphicon glyphicon-ok'></i>Aprobado y Publicado";
+                    echo "<i class='fa fa-thumbs-up'></i>Aprobado y Publicado";
                 }else{
-                    echo "<i class='glyphicon glyphicon-remove'></i>Pendiente, No publicado";
+                    echo "<i class='fa fa-thumbs-down'></i>Pendiente, No publicado";
                 }
                 
                 ?></p>

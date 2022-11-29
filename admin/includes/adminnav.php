@@ -3,9 +3,9 @@
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <span class="icon-bar fa fa-minus"></span>
+            <span class="icon-bar fa fa-minus"></span>
+            <span class="icon-bar fa fa-minus"></span>
         </button>
         <a class="navbar-brand" href="index.php">MOVILIDAD</a>
     </div>
@@ -37,7 +37,7 @@
 
             <li>
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="collapse" data-target="#movilidad"><i
-                        class="fa fa-fw fa-file-text"></i> Movilidad <i class="fa fa-fw fa-caret-down"></i></a>
+                        class="fa fa-fw fa-file-text text-info"></i> Movilidad <i class="fa fa-fw fa-caret-down text-info"></i></a>
                 <ul id="movilidad" class="collapse">
                     <li>
                         <a href="./movilidades.php">Ver todos las movilidades</a>
