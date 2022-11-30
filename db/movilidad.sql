@@ -68,28 +68,3 @@ ALTER TABLE `users`
 
 ALTER TABLE evidencia
   ADD CONSTRAINT evidencia_movilidad_fk FOREIGN KEY (movilidad) REFERENCES movilidad(id);
-
-INSERT INTO movilidad (author,tipo_movilidad, actividad, descripcion_actividad, instituto, ciudad, modalidad, lugar) 
-VALUES ('Elizabeth Ramírez Villamizar', 'Saliente', 'Semestre académico en el extrajero', 'Desarrollo de asignaturas', 'Universidad en el exterior', 'España', 'Presencial', 'Internacional'),
-('Deiby Camilo Navarro Galvis','Saliente', 'Semestre académico en el extranjero', 'Desarrollo de asignaturas', 'Movilidad académica Colombia- Argentina (MACA) ASCUN-CIN Universidad Nacional de Catamarca', 'Argentina', 'Presencial', 'Internacional'),
-('Edgar Jair Osorio Martínez', 'Saliente', 'Semestre Académico UFPS', 'Desarrollo de asignaturas', 'Benemérita Universidad Autónoma de Puebla', 'Mexico', 'Presencial', 'Internacional'),
-('Amanda Xoxocatla Mar', 'Saliente', 'Semestre Académico UFPS', 'Desarrollo de asignaturas', 'Convenio Específico de Cooperación Interinstitucional de Movilidad Académica Colombia-México (MACMEX) ASCUN-ANUIES Instituto Tecnológico Superior de Poza Rica', 'Mexico', 'Presencial', 'Internacional'),
-('Jesús Alberto Durán Juárez', 'Saliente', 'Semestre Académico UFPS', 'Desarrollo de asignaturas', 'Instituto Politécnico Nacional (IPN)', 'Mexico', 'Presencial', 'Internacional'),
-('David Alejandro Tolosa Zabala', 'Saliente', 'Actividad de corta duración en el extranjero', 'Participación en la 4° Invernal Campamento de Programación Competitiva en Chile', 'Universidad Diego Portales', 'Chile', 'Presencial', 'Internacional'),
-('José Manuel Salazar Meza', 'Saliente', 'Actividad de corta duración en el extranjero', 'Participación en la 4° Invernal Campamento de Programación Competitiva en Chile', 'Universidad Diego Portales', 'Chile', 'Presencial', 'Internacional'),
-('Carlos Fernando Calderón Rivero', 'Saliente', 'Actividad de corta duración en el extranjero', 'Participación en la 4° Invernal Campamento de Programación Competitiva en Chile', 'Universidad Diego Portales', 'Chile', 'Presencial', 'Internacional'),
-('Crisel Jazmín Ayala LLanes', 'Saliente', 'Actividad de corta duración en el extranjero', 'Participación en la 4° Invernal Campamento de Programación Competitiva en Chile', 'Universidad Diego Portales', 'Chile', 'Presencial', 'Internacional'),
-('William Yesid Moreno Hernández', 'Saliente', 'Actividad de corta duración en el extranjero', 'Participación en la IX edición del evento Training Camp Argentina', 'Universidad de Buenos Aires', 'Argentina', 'Presencial', 'Internacional'),
-('Brayan Fabián Godoy Ruíz', 'Saliente', 'Actividad de corta duración en el extranjero', 'Participación en la IX edición del evento Training Camp Argentina', 'Universidad de Buenos Aires', 'Argentina', 'Presencial', 'Internacional'),
-('David Alejandro Tolosa Zabala', 'Saliente', 'Actividad de corta duración en el extranjero', 'Participación en la IX edición del evento Training Camp Argentina', 'Universidad de Buenos Aires', 'Argentina', 'Presencial', 'Internacional'),
-('José Manuel Salazar Meza', 'Saliente', 'Actividad de corta duración en el extranjero', 'Participación en la IX edición del evento Training Camp Argentina', 'Universidad de Buenos Aires', 'Argentina', 'Presencial', 'Internacional'),
-('Carlos Fernando Calderón Rivero', 'Saliente', 'Actividad de corta duración en el extranjero', 'Participación en la IX edición del evento Training Camp Argentina', 'Universidad de Buenos Aires', 'Argentina', 'Presencial', 'Internacional'),
-('Crisel Jazmín Ayala LLanes', 'Saliente', 'Actividad de corta duración en el extranjero', 'Participación en la IX edición del evento Training Camp Argentina', 'Universidad de Buenos Aires', 'Argentina', 'Presencial', 'Internacional'),
-('Edinsson Adrián Melo Calvo', 'Saliente', 'Semestre Académico en el extranjero', 'Desarrollo de asignaturas', 'Convenio de Intercambio Academico - Programa de Intercambio Académico Latinoamericano (PILA) ASCUN-ANUIES-CIN Universidad de Buenos Aires (UBA)', 'Argentina', 'Presencial', 'Internacional'),
-('Elizabeth Ramírez Villamizar', 'Saliente', 'Actividad de corta duración en el extranjero', 'Asistencia a eventos', 'Fundación ICPC-Universidad de la Ciencias Informáticas', 'Cuba', 'Presencial', 'Internacional'),
-('Brayan Sebastian Vega García', 'Saliente', 'Actividad de corta duración en el extranjero', 'Asistencia a eventos', 'Fundación ICPC-Universidad de la Ciencias Informáticas', 'Cuba', 'Presencial', 'Internacional'),
-('José Manuel Salazar Mesa', 'Saliente', 'Actividad de corta duración en el extranjero', 'Asistencia a eventos', 'Fundación ICPC-Universidad de la Ciencias Informáticas', 'Cuba', 'Presencial', 'Internacional'),
-('Cristian Leonardo Peñaranda Mora', 'Saliente', 'Semestre Académico en el extranjero', 'Desarrollo de asignaturas', 'Convenio Intercambio Académico Programa de Intercambio Académico Latinoamericano (PILA) ASCUN-ANUIES-CIN Universidad de Hipócrates', 'México', 'Presencial', 'Internacional'),
-('Jairo Andrés Castañeda Pacheco', 'Saliente', 'Actividad de corta duración en el extranjero', 'Se planeo migrar una plataforma Moodle a la nube. La migración tuvo en cuenta la arquitectura de despliegue, el proveedor de nube, los aspectos críticos en seguridad y el impacto en los usuarios', 'REDCLARA', 'México', 'Presencial', 'Internacional'),
-('José Manolo Pinzón Hernández', 'Saliente', 'Actividad de corta duración', 'Ponente (What?s massive aplicación web que implementa las API? De whatsapp para el envío de mensajería masiva) (modalidad póster)', 'Univerisidad de Santander (UDES) REDCOLSI', 'Valledupar', 'Presencial', 'Nacional');
-
