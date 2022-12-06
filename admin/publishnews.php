@@ -89,7 +89,7 @@ echo "<script>alert('El tamaño de la imagen no es correcto');</script>";
         <?php $post_author = $_SESSION['firstname']; ?>
         <?php 
         if($_SESSION['role'] == 'superadmin'){
-        $query = "SELECT id,author, actividad, descripcion_actividad, ciudad FROM movilidad ORDER BY id DESC";
+            $query = "SELECT id,author, actividad, descripcion_actividad, ciudad FROM movilidad ORDER BY id DESC";
         }else{
             $query = "SELECT id, author, actividad, descripcion_actividad, ciudad FROM movilidad  WHERE author = '$post_author' ORDER BY id DESC";
         }
