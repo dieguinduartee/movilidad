@@ -63,7 +63,7 @@ while ($row = mysqli_fetch_array($run_query)) {
 				<p><i class="glyphicon glyphicon-map-marker"></i>Institución: <?php echo $post_instituto; ?></p>
                 <p>Modalidad:
                 <?php
-                if($post_modalidad == 'presencial'){
+                if($post_modalidad == 'Presencial'){
                     echo "<i class='fa fa-user-circle-o'></i>Presencial";
                 }else{
                     echo "<i class='fa fa-video-camera'></i>Virtual";
