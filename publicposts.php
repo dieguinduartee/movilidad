@@ -29,11 +29,11 @@
                     <p><h2><i class="glyphicon glyphicon-user ml-1 text-info"></i><span class="font-weight-bold"><?php echo $post_author; ?></span></h2>
                     <p><h3 class="font-weight-bold"><i class="fa fa-tasks ml-1 text-info"></i><?php echo $post_descripcion; ?></h3></p>
                     <p>Movilidad: <?php
-                        if($post_tipo_movilidad == 'entrante'){
+                        if($post_tipo_movilidad == 'Entrante'){
                             echo "<i class='glyphicon glyphicon-log-in ml-1 text-info'></i><span class='mx-1'>Entrante</span>";
                         }else{
                             echo "<i class='glyphicon glyphicon-log-out ml-1 text-info'></i><span class='mx-1'>Saliente</span>";
-                        }?> -  <?php $post_modalidad;?></p>
+                        }?> -  <?php  echo $post_modalidad;?></p>
                     <p><i class="fa fa-globe ml-1 text-info"></i>Lugar: <?php echo $post_ciudad;?></p>
                     <p><span class="fa fa-calendar-o ml-1 text-info"></span> <?php echo $post_fecha_inicio; ?> <span class="fa fa-calendar-o ml-1"></span><?php echo $post_fecha_fin; ?></p>
                     <p><i class="fa fa-university ml-1 text-info"></i><?php echo $post_instituto; ?></p>
@@ -41,7 +41,7 @@
                         <?php
                         if($post_modalidad == 'Presencial'){
                             echo "<i class='fa fa-street-view ml-1 text-info'></i>Modalidad Presencial";
-                        }else{
+                        }else if($post_modalidad == 'Virtual'){
                             echo "<i class='fa fa-video-camera ml-1 text-info'></i>Modalidad Virtual";
                         }
                         ?></p>

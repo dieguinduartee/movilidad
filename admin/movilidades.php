@@ -31,6 +31,7 @@
             <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Tipo Usuario</th>
                         <th>Autor</th>
                         <th>Lugar</th>
                         <th>Actividad</th>
@@ -57,6 +58,7 @@ if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
     $post_id = $row['id'];
     $post_author = $row['author'];
+    $post_tipoauthor = $row['tipo_author'];
     $post_lugar = $row['lugar'];
     $post_actividad = $row['actividad'];
     $post_descripcion = $row['descripcion_actividad'];
@@ -76,6 +78,7 @@ while ($row = mysqli_fetch_array($run_query)) {
         ?>
     <td><?php echo $post_id; ?></td>
     <td><?php echo $post_author; ?></td>
+    <td><?php echo $post_tipoauthor; ?></td>
     <td><?php echo $post_lugar; ?></td>
     <td><?php echo $post_actividad; ?></td>
     <td><?php echo $post_descripcion; ?></td>
@@ -343,7 +346,7 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td>$post_modalidad</td>";
     echo "<td><a class='btn btn-success btn-sm' role='button' href='movilidad.php?post=$post_id' style='color:green'>Ver</a></td>";
     echo "<td><a class='btn btn-primary btn-sm' role='button' href='editmovilidad.php?id=$post_id'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
-    echo "<td><a class='btn btn-danger btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta publicación?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>delete</a></td>";
+    echo "<td><a class='btn btn-danger btn-sm' role='button' onClick=\"javascript: return confirm('¿Estás seguro de que deseas eliminar esta publicación?')\" href='?del=$post_id'><i class='fa fa-times' style='color: red;'></i>Borrar</a></td>";
 
     echo "</tr>";
 

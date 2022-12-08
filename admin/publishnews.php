@@ -18,17 +18,17 @@
 if (isset($_POST['publish'])) {
 require "../gump.class.php";
 $gump = new GUMP();
-$_POST = $gump->sanitize($_POST); 
+//$_POST = $gump->sanitize($_POST); 
 
-$gump->validation_rules(array(
+//$gump->validation_rules(array(
     //'title'    => 'required|max_len,120|min_len,15',
   //  'tags'   => 'required|max_len,100|min_len,3',
    // 'content' => 'required|max_len,20000|min_len,150',
-));
-$gump->filter_rules(array(
-    'title' => 'trim|sanitize_string',
-    'tags' => 'trim|sanitize_string',
-    ));
+//));
+//$gump->filter_rules(array(
+  //  'title' => 'trim|sanitize_string',
+  //  'tags' => 'trim|sanitize_string',
+//    ));
 $validated_data = $gump->run($_POST);
 
 if($validated_data === false) {

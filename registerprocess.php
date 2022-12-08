@@ -3,7 +3,7 @@ include('includes/connection.php');
 if (isset($_POST['register'])) {
 require "gump.class.php";
 $gump = new GUMP();
-$_POST = $gump->sanitize($_POST); 
+//$_POST = $gump->sanitize($_POST); 
 
 $gump->validation_rules(array(
 	'username'    => 'required|alpha_numeric|max_len,20|min_len,4',

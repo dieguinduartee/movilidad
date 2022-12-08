@@ -17,6 +17,7 @@ CREATE TABLE movilidad (
   fecha_fin date DEFAULT NULL,
   ciudad varchar(255) COLLATE utf8mb4_spanish2_ci DEFAULT NULL,
   author varchar(225) COLLATE utf8mb4_spanish2_ci NOT NULL,
+  tipo_author VARCHAR(255) COLLATE utf8mb4_spanish2_ci NOT NULL,
   postdate date NOT NULL,
   updated_on timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   status varchar(225) COLLATE utf8mb4_spanish2_ci default 'draft',
@@ -50,7 +51,7 @@ INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `passwo
 (44, '1151605', 'diego alexis duarte martinez', 'Estudiante', 'diego.duartee5555@gmail.com', '$2y$10$d55Ep3nLUauN16r7N.ioieS9roBFj4tHHyyIQH4cjxsZK6H.Olx12', 'user'),
 (45, '1151606', 'juan', 'Docente', 'juancarlos@gmail.com', '$2y$10$QTvR3tFDAfg7U4hrX1D86OYcOWp2YDSzSrE7UKDePVCXKKFZh3jUq', 'admin'),
 (46, '1151604', 'MARIA FERNANDA MARTINEZ', 'Estudiante', 'maria@gmail.com', '$2y$10$p7yxasQztmA7bQxiZ0yXvu//kb47uGQgPNCwRfR4qrSOAei/kE1um', 'user'),
-(47, '1151337', 'Luis Vicente Albarracin', 'Estudiante', 'luis@gmail.com', '$2y$10$Ckn10CJB9LUX/QSHgoQEd.tLCx7.D/MpG6wsUzk0F.uM9hT0Jn/RG', 'user');
+(47, '1151337', 'Luis Vicente Albarracin', 'Estudiante', 'luis@gmail.com', '$2y$10$aAmN2D98aEXP9RLxLYrMfO8JeyI8wGjM2DvSxSK37PO4HL8ZC5kdu', 'user');
 
 
 ALTER TABLE `movilidad`

@@ -19,6 +19,7 @@ if (mysqli_num_rows($run_query) > 0 ) {
 while ($row = mysqli_fetch_array($run_query)) {    
     $post_id = $row['id'];
     $post_author = $row['author'];
+    $post_tipoauthor = $row['tipo_author'];
     $post_lugar = $row['lugar'];
     $post_actividad = $row['actividad'];
     $post_descripcion = $row['descripcion_actividad'];
@@ -33,17 +34,6 @@ while ($row = mysqli_fetch_array($run_query)) {
 if (isset($_POST['update'])) {
 require "../gump.class.php";
 $gump = new GUMP();
-$_POST = $gump->sanitize($_POST); 
-
-$gump->validation_rules(array(
-  //  'title'    => 'required|max_len,120|min_len,15',
-   // 'tags'   => 'required|max_len,100|min_len,3',
-   // 'content' => 'required|max_len,10000|min_len,150',
-));
-$gump->filter_rules(array(
-    'title' => 'trim|sanitize_string',
-    'tags' => 'trim|sanitize_string',
-    ));
 $validated_data = $gump->run($_POST);
 
     $actividad = $_POST['actividad'];
@@ -57,9 +47,14 @@ $validated_data = $gump->run($_POST);
     $modalidad = $_POST['modalidad'];
     $fecha_inicio = $_POST['fecha_inicio'];
     $fecha_fin = $_POST['fecha_fin'];
-
-
+    if ($_SESSION['role'] == 'superadmin') {
+        $author = $_POST['author'];
+        $tipo_author = $_POST['tipo_autor'];
+        $queryupdate = "UPDATE movilidad SET author = '$author', tipo_author = '$tipo_author', actividad = '$actividad' , descripcion_actividad = '$descripcion' , lugar='$lugar' , tipo_movilidad = '$tipo_movilidad', instituto = '$instituto', fecha_inicio = '$fecha_inicio', fecha_fin = '$fecha_fin', ciudad = '$ciudad', modalidad = '$modalidad' WHERE id= '$post_id' " ;
+    }else{
         $queryupdate = "UPDATE movilidad SET actividad = '$actividad' , descripcion_actividad = '$descripcion' , lugar='$lugar' , tipo_movilidad = '$tipo_movilidad', instituto = '$instituto', fecha_inicio = '$fecha_inicio', fecha_fin = '$fecha_fin', ciudad = '$ciudad', modalidad = '$modalidad' WHERE id= '$post_id' " ;
+    }
+
         $result = mysqli_query($conn , $queryupdate) or die(mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
         	echo "<script>alert('Publicación actualizada satisfactoriamente');
@@ -87,13 +82,29 @@ $validated_data = $gump->run($_POST);
                             MODIFICAR MOVILIDAD 
                         </h1>
                         <form role="form" action="" method="POST" enctype="multipart/form-data">
+                            
+        <?php if ($_SESSION['role'] == 'superadmin') { ?>
+                            <div class="form-group">
+                                <label for='tipo_autor'>Usuario de Movilidad *</label>
+                                <select class="form-control" name="tipo_autor" id="tipo_autor" required>
+                                    <option value='Docente' <?php $post_tipoauthor == "Docente" ? print"selected": print"";?>>Docente</option>
+                                    <option value='Estudiante' <?php $post_tipoauthor == "Estudiante" ? print"selected": print"";?>>Estudiante</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="autor">Nombre del usuario *</label>
+                                <input type="text" name="author" id="author" placeholder = "Ingrese el nombre del usuario" value= "<?php echo $post_author;  ?>"  class="form-control" required>
+                            </div>
+
+<?php } ?>
 
 	<div class="form-group">
 		<label for='lugar'>Ámbito</label>
 		<select class="form-control" name="lugar" id="lugar">
-			<option value='local' <?php $post_lugar == "local" ? print"selected": print"";?>>Local</option>
-			<option value='nacional' <?php $post_lugar == "nacional" ? print"selected": print"";?>>Nacional</option>
-			<option value='internacional' <?php $post_lugar == "internacional" ? print"selected": print"";?>>Internacional</option>
+			<option value='Local' <?php $post_lugar == "Local" ? print"selected": print"";?>>Local</option>
+			<option value='Nacional' <?php $post_lugar == "Nacional" ? print"selected": print"";?>>Nacional</option>
+			<option value='Internacional' <?php $post_lugar == "Internacional" ? print"selected": print"";?>>Internacional</option>
 		</select>
 	</div>
 	
@@ -138,8 +149,8 @@ $validated_data = $gump->run($_POST);
     <div class="form-group">
         <label for="modalidad">Modalidad</label>
         <select class="form-control" name="modalidad" id="modalidad">
-			<option value='presencial' <?php $post_modalidad == "presencial" ? print"selected": print"";?>>Presencial</option>
-			<option value='virtual' <?php $post_modalidad == "virtual" ? print"selected": print"";?>>Virtual</option>
+			<option value='Presencial' <?php $post_modalidad == "Presencial" ? print"selected": print"";?>>Presencial</option>
+			<option value='Virtual' <?php $post_modalidad == "Virtual" ? print"selected": print"";?>>Virtual</option>
 		</select>
     </div>
 	

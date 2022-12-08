@@ -19,6 +19,7 @@ if (mysqli_num_rows($run_query) > 0 ) {
 while ($row = mysqli_fetch_array($run_query)) {
     $post_id = $row['id'];
     $post_author = $row['author'];
+    $post_tipoauthor = $row['tipo_author'];
     $post_lugar = $row['lugar'];
     $post_actividad = $row['actividad'];
     $post_descripcion = $row['descripcion_actividad'];
@@ -49,7 +50,7 @@ while ($row = mysqli_fetch_array($run_query)) {
                 
                 <hr>
 	       		<p><h2><a href="#"><?php echo $post_actividad; ?></a></h2></p>
-	       		<p><h2><i class="glyphicon glyphicon-user"></i><span class=""><?php echo $post_author; ?></span></h2>
+            <p><h2><i class="glyphicon glyphicon-user"></i><span><?php echo $post_tipoauthor; ?></span> - <span class=""><?php echo $post_author; ?></span> </h2>
                 <p><h3><i class="glyphicon glyphicon-list-alt "></i>Movilidad:  <?php echo $post_descripcion; ?></h3></p>
                 <p>Modalidad: <?php
                 if($post_tipo_movilidad == 'entrante'){

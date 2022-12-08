@@ -292,7 +292,7 @@ else {
 <?php
     if (isset($_GET['del'])) {
         $post_del = mysqli_real_escape_string($conn , $_GET['del']);
-        $del_query = "DELETE FROM evidencia WHERE id='$post_del' AND author='$currentuser'";
+        $del_query = "DELETE FROM evidencia WHERE id='$post_del';";
         $run_del_query = mysqli_query($conn, $del_query) or die (mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
             echo "<script>alert('Evidencia eliminada con éxito');
